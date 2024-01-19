@@ -2,12 +2,40 @@
 -- create tables
 --
 
-CREATE TABLE products (
+CREATE TABLE camera (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  code VARCHAR(15),
-  name VARCHAR(255),
+  naam VARCHAR(255),
+  merk VARCHAR(255),
   description TEXT,
-  price NUMERIC(10, 2)
+  prijs NUMERIC(10,2),
+  voorraad VARCHAR(255)
+);
+
+CREATE TABLE lens (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  naam VARCHAR(255),
+  merk VARCHAR(255),
+  description TEXT,
+  prijs NUMERIC(10,2),
+  voorraad VARCHAR(255)
+);
+
+CREATE TABLE statief (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  naam VARCHAR(255),
+  merk VARCHAR(255),
+  description TEXT,
+  prijs NUMERIC(10,2),
+  voorraad VARCHAR(255)
+);
+
+CREATE TABLE drone (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  naam VARCHAR(255),
+  merk VARCHAR(255),
+  description TEXT,
+  prijs NUMERIC(10,2),
+  voorraad VARCHAR(255)
 );
 
 
