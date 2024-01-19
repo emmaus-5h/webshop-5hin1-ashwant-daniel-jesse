@@ -1,6 +1,13 @@
 --
 -- create tables
 --
+CREATE TABLE products (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(255),
+  description TEXT,
+  code VARCHAR(255),
+  price NUMERIC(10,2)
+);
 
 CREATE TABLE camera (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
