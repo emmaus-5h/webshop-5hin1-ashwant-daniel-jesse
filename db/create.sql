@@ -7,12 +7,18 @@ CREATE TABLE products (
   description TEXT,
   code VARCHAR(255),
   price NUMERIC(10,2),
-  merk_id NUMERIC
+  merk_id NUMERIC,
+  type_id NUMERIC
 );
 
 CREATE TABLE merk (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255),
+);
+
+CREATE TABLE type (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  class VARCHAR(255),
 );
 
 
@@ -31,4 +37,5 @@ insert into products (name, description, code, price) values ('Sony Cybershot DS
 insert into products (name, description, code, price) values ('Panasonic HC-X2E', 'DDe Panasonic HC-X2E is een geavanceerde 4K-camcorder met geïntegreerde lens en 1.0-type sensor, die naast een uitstekende gewichtsbalans en draagbaarheid ook de functies en prestaties biedt die professionals wensen.', '693155505-7', 3199.99);
 insert into products (name, description, code, price) values ('Kiss for Corliss, A (Almost a Bride)', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', '686928463-6', 14);
 insert into products (name, description, code, price) values ('Velvet Goldmine', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', '492662523-7', 14);
+insert into type (class) values ('camera');
 
