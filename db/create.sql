@@ -22,6 +22,7 @@ CREATE TABLE type (
 );
 
 
+
 --
 -- populate with data
 --
@@ -38,4 +39,6 @@ insert into products (name, description, code, price) values ('Panasonic HC-X2E'
 insert into products (name, description, code, price) values ('Kiss for Corliss, A (Almost a Bride)', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', '686928463-6', 14);
 insert into products (name, description, code, price) values ('Velvet Goldmine', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', '492662523-7', 14);
 insert into type (class) values ('camera');
+
+insert into merk (name) values ('Sony');
 
