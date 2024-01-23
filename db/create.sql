@@ -6,43 +6,13 @@ CREATE TABLE products (
   name VARCHAR(255),
   description TEXT,
   code VARCHAR(255),
-  price NUMERIC(10,2)
+  price NUMERIC(10,2),
+  merk_id NUMERIC
 );
 
-CREATE TABLE camera (
+CREATE TABLE merk (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  naam VARCHAR(255),
-  merk VARCHAR(255),
-  description TEXT,
-  prijs NUMERIC(10,2),
-  voorraad VARCHAR(255)
-);
-
-CREATE TABLE lens (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  naam VARCHAR(255),
-  merk VARCHAR(255),
-  description TEXT,
-  prijs NUMERIC(10,2),
-  voorraad VARCHAR(255)
-);
-
-CREATE TABLE statief (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  naam VARCHAR(255),
-  merk VARCHAR(255),
-  description TEXT,
-  prijs NUMERIC(10,2),
-  voorraad VARCHAR(255)
-);
-
-CREATE TABLE drone (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  naam VARCHAR(255),
-  merk VARCHAR(255),
-  description TEXT,
-  prijs NUMERIC(10,2),
-  voorraad VARCHAR(255)
+  name VARCHAR(255),
 );
 
 
