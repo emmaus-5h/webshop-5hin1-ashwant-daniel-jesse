@@ -60,3 +60,4 @@ insert into merk (name) values ('Rollei');
 insert into merk (name) values ('Bresser');
 
 
+
