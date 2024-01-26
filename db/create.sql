@@ -7,23 +7,41 @@ CREATE TABLE products (
   description TEXT,
   code VARCHAR(255),
   price NUMERIC(10,2),
+  megapixels VARCHAR(255),
+  sensor VARCHAR(255),
+  fps VARCHAR(255),
+  bitrate VARCHAR(255),
+  beeldstabilisatie VARCHAR(255),
+  geheugenkaartslots VARCHAR(255),
+  stofwaterspatdicht VARCHAR(255),
+  schermgrootte VARCHAR(255),
   merk_id NUMERIC,
   type_id NUMERIC,
- 
+  gebruik_id NUMERIC
 );
+
+-- n op m relatie maken
 
 CREATE TABLE merk (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255),
+  fame VARCHAR(255),
+  beschrijving TEXT
 );
 
 CREATE TABLE type (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  class VARCHAR(255),
+  class VARCHAR(255)
+);
+
+CREATE TABLE gebruik(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  soort VARCHAR(255),
+  tweeD BIT
 );
 
 
-
+  
 --
 -- populate with data
 --
