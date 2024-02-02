@@ -7,9 +7,9 @@ CREATE TABLE products (
   description TEXT,
   code VARCHAR(255),
   price NUMERIC(10,2),
-  merk_id NUMERIC,
-  type_id NUMERIC,
-  gebruik_id NUMERIC
+  merk_id INTEGER,
+  type_id INTEGER,
+  gebruik_id INTEGER
 );
 
 CREATE TABLE camera (
@@ -26,26 +26,57 @@ CREATE TABLE camera (
   geheugenkaartslots VARCHAR(255),
   stofwaterspatdicht BIT,
   schermgrootte VARCHAR(255),
-  merk_id NUMERIC,
-  type_id NUMERIC,
-  gebruik_id NUMERIC
+  merk_id INTEGER,
+  type_id INTEGER,
+  gebruik_id INTEGER,
+  products_id INTEGER
 );
 
 CREATE TABLE lenzen (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
   prijs NUMERIC(10,2),
+  lenstype BIT,
   BESCHRIJVING TEXT,
-  merk_id NUMERIC,
-  camera_id NUMERIC
+  merk_id INTEGER,
+  camera_id INTEGER,
+  products_id INTEGER
 );
 
 CREATE TABLE camera_lenzen (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  camera_id NUMERIC,
-  lenzen_id NUMERIC
+  camera_id INTEGER,
+  lenzen_id INTEGER
 );
 
+CREATE TABLE statief (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  naam VARCHAR(255),
+  prijs NUMERIC(10,2),
+  materiaal VARCHAR(255),
+  maxlengte(m) VARCHAR(255),
+  draagvermogen(kg) VARCHAR(255),
+  beschrijving TEXT,
+  merk_id INTEGER,
+  products_id INTEGER
+);
+
+CREATE TABLE drone (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  naam VARCHAR(255),
+  prijs NUMERIC(10,2),
+  gewicht(kg) VARCHAR(255),
+  v4Kvideo BIT,
+  topspeed(km/h) VARCHAR(255),
+  batterijgrootte(mAh) VARCHAR(255),
+  beschrijving TEXT,
+  merk_id INTEGER,
+  products_id INTEGER
+);
+
+
+
+-------------------------------------------------------------------------------------------------
 
 CREATE TABLE merk (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -104,9 +135,6 @@ insert into products (name, description, code, price, merk_id, type_id) values (
 
 
 /* Type */
-insert into type (class) values ('Camera');
-insert into type (class) values ('Lens');
-insert into type (class) values ('Statief');
 insert into type (class) values ('Drone');
 insert into type (class) values ('doorbel');
 insert into type (class) values ('360 camera');
