@@ -84,22 +84,34 @@ insert into type (class) values ('360 camera');
 
 
 /* Merk */
+
+-- Camera/lens
 insert into merk (name) values ('Sony');
 insert into merk (name) values ('Nikon');
 insert into merk (name) values ('Canon');
 insert into merk (name) values ('Panasonic');
 insert into merk (name) values ('Fujifilm');
 insert into merk (name) values ('Sigma');
-insert into merk (name) values ('DJI');
 insert into merk (name) values ('Leica');
 insert into merk (name) values ('Tamron');
 insert into merk (name) values ('OM System');
-insert into merk (name) values ('Rollei');
-insert into merk (name) values ('Bresser');
 insert into merk (name) values ('Pentax');
 insert into merk (name) values ('Olympus');
 insert into merk (name) values ('Hasselblad');
-insert into merk (name) values ('RING');
+
+-- Statief
+insert into merk (name) values ('Rollei');
+insert into merk (name) values ('Bresser');
+
+-- Drone
+insert into merk (name) values ('DJI');
+
+-- Doorbel
+insert into merk (name) values ('RING');  
+
+-- 360 camera
+insert into merk (name) values ('Insta 360'); 
+insert into merk (name) values ('Kandao');  
 
 
 
