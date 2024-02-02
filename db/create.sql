@@ -13,14 +13,13 @@ CREATE TABLE products (
   bitrate VARCHAR(255),
   beeldstabilisatie VARCHAR(255),
   geheugenkaartslots VARCHAR(255),
-  stofwaterspatdicht VARCHAR(255),
+  stofwaterspatdicht BIT,
   schermgrootte VARCHAR(255),
   merk_id NUMERIC,
   type_id NUMERIC,
   gebruik_id NUMERIC
 );
 
--- n op m relatie maken
 
 CREATE TABLE merk (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,11 +36,22 @@ CREATE TABLE type (
 CREATE TABLE gebruik(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   soort VARCHAR(255),
-  tweeD BIT
+  tweedehands BIT
 );
 
+CREATE TABLE tags (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  tagname VARCHAR(255)
+--bv "sale", "new", "bestseller","garantie"
+);
 
-  
+CREATE TABLE product_tags (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  product_id INTEGER,
+  tag_id INTEGER
+);
+
+--https://levelup.gitconnected.com/master-the-power-of-sql-fact-tables-vs-dimension-tables-explained-81446c39dfe4
 --
 -- populate with data
 --
