@@ -1,14 +1,16 @@
 --
 -- create tables
---
+
+
+-- product gerelateerde tabellen
+
 CREATE TABLE products (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255),
   description TEXT,
   code VARCHAR(255),
-  price NUMERIC(10,2),
+  price INTEGER(10,2),
   merk_id INTEGER,
-  type_id INTEGER,
   gebruik_id INTEGER
 );
 
@@ -16,8 +18,6 @@ CREATE TABLE camera (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255),
   description TEXT,
-  code VARCHAR(255),
-  price NUMERIC(10,2),
   megapixels VARCHAR(255),
   sensor VARCHAR(255),
   fps VARCHAR(255),
@@ -35,7 +35,6 @@ CREATE TABLE camera (
 CREATE TABLE lenzen (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  prijs NUMERIC(10,2),
   lenstype BIT,
   BESCHRIJVING TEXT,
   merk_id INTEGER,
@@ -52,10 +51,9 @@ CREATE TABLE camera_lenzen (
 CREATE TABLE statief (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  prijs NUMERIC(10,2),
   materiaal VARCHAR(255),
-  maxlengte(m) VARCHAR(255),
-  draagvermogen(kg) VARCHAR(255),
+  maxlengteM VARCHAR(255),
+  draagvermogenKG VARCHAR(255),
   beschrijving TEXT,
   merk_id INTEGER,
   products_id INTEGER
@@ -64,17 +62,28 @@ CREATE TABLE statief (
 CREATE TABLE drone (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  prijs NUMERIC(10,2),
-  gewicht(kg) VARCHAR(255),
+  gewichtKG VARCHAR(255),
   v4Kvideo BIT,
-  topspeed(km/h) VARCHAR(255),
-  batterijgrootte(mAh) VARCHAR(255),
+  topspeedKMH VARCHAR(255),
+  batterijgrootteMaH VARCHAR(255),
   beschrijving TEXT,
   merk_id INTEGER,
   products_id INTEGER
 );
 
-
+CREATE TABLE driezestigcamera (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  naam VARCHAR(255),
+  gewichtKG VARCHAR(255),
+  wifi BIT,
+  bluetooth BIT,
+  ISOmin VARCHAR(255),
+  ISOmax VARCHAR(255),
+  v4Kvideo BIT,
+  beschrijving TEXT,
+  merk_id INTEGER,
+  products_id INTEGER
+);
 
 -------------------------------------------------------------------------------------------------
 
@@ -83,11 +92,6 @@ CREATE TABLE merk (
   name VARCHAR(255),
   fame VARCHAR(255),
   beschrijving TEXT
-);
-
-CREATE TABLE type (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  class VARCHAR(255)
 );
 
 CREATE TABLE gebruik(
@@ -104,12 +108,12 @@ CREATE TABLE tags (
 
 CREATE TABLE product_tags (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  product_id INTEGER,
+  products_id INTEGER,
   tag_id INTEGER
 );
 
---relatie tussen camera's en lenzen
---relatie tussen camera en accesoires 
+
+--kan nog accessoires zoals geheugenkaarten, accu's, rigs en stabilisers toevoegen
 
 --https://levelup.gitconnected.com/master-the-power-of-sql-fact-tables-vs-dimension-tables-explained-81446c39dfe4
 --
@@ -135,9 +139,9 @@ insert into products (name, description, code, price, merk_id, type_id) values (
 
 
 /* Type */
-insert into type (class) values ('Drone');
 insert into type (class) values ('doorbel');
-insert into type (class) values ('360 camera');
+
+--vragen aan de persoon met dit idee of we dit nog echt willen houden want niet heel gerelateerd aan de camera's(daniel)
 
 
 /* Merk */
