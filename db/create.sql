@@ -7,6 +7,17 @@ CREATE TABLE products (
   description TEXT,
   code VARCHAR(255),
   price NUMERIC(10,2),
+  merk_id NUMERIC,
+  type_id NUMERIC,
+  gebruik_id NUMERIC
+);
+
+CREATE TABLE camera (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(255),
+  description TEXT,
+  code VARCHAR(255),
+  price NUMERIC(10,2),
   megapixels VARCHAR(255),
   sensor VARCHAR(255),
   fps VARCHAR(255),
@@ -18,6 +29,21 @@ CREATE TABLE products (
   merk_id NUMERIC,
   type_id NUMERIC,
   gebruik_id NUMERIC
+);
+
+CREATE TABLE lenzen (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  naam VARCHAR(255),
+  prijs NUMERIC(10,2),
+  BESCHRIJVING TEXT,
+  merk_id NUMERIC,
+  camera_id NUMERIC
+);
+
+CREATE TABLE camera_lenzen (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  camera_id NUMERIC,
+  lenzen_id NUMERIC
 );
 
 
@@ -50,6 +76,9 @@ CREATE TABLE product_tags (
   product_id INTEGER,
   tag_id INTEGER
 );
+
+--relatie tussen camera's en lenzen
+--relatie tussen camera en accesoires 
 
 --https://levelup.gitconnected.com/master-the-power-of-sql-fact-tables-vs-dimension-tables-explained-81446c39dfe4
 --
