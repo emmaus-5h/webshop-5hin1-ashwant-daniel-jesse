@@ -140,10 +140,8 @@ insert into products (name, description, code, price, merk_id) values ('Sigma FP
 insert into products (name, description, code, price, merk_id) values ('DJI Osmo Action 4', 'Met de DJI Osmo Action 4 leg je al jouw avonturen vast op beeld. De action camera heeft een grote, lichtsterke 1/1.3 inch beeldsensor. Hierdoor maak je videos met veel details. In donkere omstandigheden maak je dankzij de grote beeldsensor heldere videos. Film bijvoorbeeld een fietsrit tijdens de zonsondergang. Je filmt in 4K resolutie met maximaal 120 frames per seconde. Dit levert haarscherpe beelden op die je wel 4 keer vertraagt. Zo licht je een actiemoment duidelijk uit. De camera is waterdicht tot 18 meter diepte. Neem hem mee tijdens het duiken en leg exotische vissen en koraal vast. Dankzij de SteadyShot 3.0 beeldstabilisatie zien je beelden er stabiel uit. Deze technologie vermindert trillingen, wat handig is als je over een hobbelig pad fietst. Met de HorizonSteady blijft de horizon van je video altijd recht, zelfs als de camera 360 graden draait. Houd de action camera bijvoorbeeld in je hand terwijl je van de skipiste afraast.', '492662523-7', 14, 7);
 
 
-/* Type */
---insert into type (class) values ('doorbel');
 
---vragen aan de persoon met dit idee of we dit nog echt willen houden want niet heel gerelateerd aan de camera's(daniel)
+/* Type */
 
 
 /* Merk */
