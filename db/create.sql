@@ -118,8 +118,7 @@ CREATE TABLE camera_memorycard (
 CREATE TABLE gebruik(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   soort VARCHAR(255),
-  tweedehands BIT,
-  product_id INTEGER
+  tweedehands BIT
 );
 
 CREATE TABLE tags (
@@ -184,7 +183,7 @@ insert into merk (name) values ('Kandao');--20
 
 
 /*products*/
-
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7 mark III body','een hele goeie camera', '1843437', 1499.99, 1, 1);
 
 /*camera*/
 
@@ -214,8 +213,8 @@ insert into merk (name) values ('Kandao');--20
 
 
 /*gebruik*/
-
-
+insert into gebruik (soort, tweedehands) values ('all-rounder', 0);
+insert into gebruik (soort, tweedehands) values ('nature', 1);
 /*tags*/
 
 

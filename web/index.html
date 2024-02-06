@@ -126,7 +126,7 @@
               clone.querySelector(".product_code").textContent = product.code
               clone.querySelector(".product_id").value = product.id
               clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
-              clone.querySelector(".product_image").src =`/images2/${product.name}.jpg`
+              clone.querySelector(".product_image").src =`/images/${product.name}`
               container.appendChild(clone)
             }
           }
