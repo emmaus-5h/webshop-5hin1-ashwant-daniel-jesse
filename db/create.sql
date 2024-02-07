@@ -117,8 +117,7 @@ CREATE TABLE camera_memorycard (
 
 CREATE TABLE gebruik(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  soort VARCHAR(255),
-  tweedehands BIT
+  soort VARCHAR(255)
 );
 
 CREATE TABLE tags (
@@ -184,7 +183,20 @@ insert into merk (name) values ('Kandao');--20
 
 /*products*/
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7 mark III body','een hele goeie camera', '1843437', 1499.99, 1, 1);
-
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7 mark IV body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7R V body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6100 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6400 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6600 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6700 body','een hele goeie camera', '1843437', 1499.99, 1, 1);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony vlog camera ZV-E10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('sony alpha a1','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony FX3 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony FX30 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7C2 zilver','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony a7c','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('sony a9III','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('zv-e1','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 /*camera*/
 
 
@@ -213,8 +225,11 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 
 
 /*gebruik*/
-insert into gebruik (soort, tweedehands) values ('all-rounder', 0);
-insert into gebruik (soort, tweedehands) values ('nature', 1);
+insert into gebruik (soort) values ('mirrorless');
+insert into gebruik (soort) values ('dslr');
+insert into gebruik (soort) values ('compact');
+insert into gebruik (soort) values ('film');
+
 /*tags*/
 
 
