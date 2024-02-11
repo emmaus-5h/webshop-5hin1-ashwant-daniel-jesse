@@ -54,8 +54,7 @@ CREATE TABLE statief (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
   materiaal VARCHAR(255),
-  maxlengteM VARCHAR(255),
-  draagvermogenKG VARCHAR(255),
+  draagvermogen VARCHAR(255),
   beschrijving TEXT,
   merk_id INTEGER,
   product_id INTEGER
@@ -64,10 +63,9 @@ CREATE TABLE statief (
 CREATE TABLE drone (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  gewichtKG VARCHAR(255),
+  gewicht VARCHAR(255),
   v4Kvideo BIT,
-  topspeedKMH VARCHAR(255),
-  batterijgrootteMaH VARCHAR(255),
+  batterijgrootte VARCHAR(255),
   beschrijving TEXT,
   merk_id INTEGER,
   product_id INTEGER
@@ -77,11 +75,7 @@ CREATE TABLE driezestigcamera (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
   gewichtKG VARCHAR(255),
-  wifi BIT,
   bluetooth BIT,
-  ISOmin VARCHAR(255),
-  ISOmax VARCHAR(255),
-  v4Kvideo BIT,
   beschrijving TEXT,
   merk_id INTEGER,
   product_id INTEGER
@@ -628,27 +622,93 @@ insert into lenzen (naam, lenstype, beschrijving, merk_id, product_id) values ('
 insert into lenzen (naam, lenstype, beschrijving, merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 'De wijdste ultragroothoekzoom lens van canon geschikt voor de fullframe EOS camera met EF vatting. Super degelijke bouwkwaliteit en de beste optische prestaties zonder al te veel vervorming.', 3, 1);
 insert into lenzen (naam, lenstype, beschrijving, merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 'De wijdste ultragroothoekzoom lens van canon geschikt voor de fullframe EOS camera met EF vatting. Super degelijke bouwkwaliteit en de beste optische prestaties zonder al te veel vervorming.', 3, 1);
 
-
-
 /*camera_lenzen*/
-
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
+insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
 
 /*statief*/
-
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);\
 
 /*drone*/
-
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, beschrijving, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 'Ga de lucht in met de DJI Air 3 drone en til jouw luchtopnames naar een hoger niveau met de twee krachtige cameras, Wide-Angle en Medium Telephoto met 3x zoom.', 17, 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, beschrijving, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 'Ga de lucht in met de DJI Air 3 drone en til jouw luchtopnames naar een hoger niveau met de twee krachtige cameras, Wide-Angle en Medium Telephoto met 3x zoom.', 17, 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, beschrijving, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 'Ga de lucht in met de DJI Air 3 drone en til jouw luchtopnames naar een hoger niveau met de twee krachtige cameras, Wide-Angle en Medium Telephoto met 3x zoom.', 17, 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, beschrijving, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 'Ga de lucht in met de DJI Air 3 drone en til jouw luchtopnames naar een hoger niveau met de twee krachtige cameras, Wide-Angle en Medium Telephoto met 3x zoom.', 17, 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, beschrijving, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 'Ga de lucht in met de DJI Air 3 drone en til jouw luchtopnames naar een hoger niveau met de twee krachtige cameras, Wide-Angle en Medium Telephoto met 3x zoom.', 17, 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, beschrijving, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 'Ga de lucht in met de DJI Air 3 drone en til jouw luchtopnames naar een hoger niveau met de twee krachtige cameras, Wide-Angle en Medium Telephoto met 3x zoom.', 17, 235);
 
 /*driezestigcamera*/
-
+insert into driezestigcamera (naam, gewicht, bluetooth, beschrijving, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 'De Insta360 GO 3 is een kleine, krachtige action camera. Superieure stabilisatie, oneindige bevestigingsmogelijkheden en de handige Actionpod maken de GO 3 de perfecte metgezel voor al je avonturen.', 18, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, beschrijving, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 'De Insta360 GO 3 is een kleine, krachtige action camera. Superieure stabilisatie, oneindige bevestigingsmogelijkheden en de handige Actionpod maken de GO 3 de perfecte metgezel voor al je avonturen.', 18, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, beschrijving, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 'De Insta360 GO 3 is een kleine, krachtige action camera. Superieure stabilisatie, oneindige bevestigingsmogelijkheden en de handige Actionpod maken de GO 3 de perfecte metgezel voor al je avonturen.', 18, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, beschrijving, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 'De Insta360 GO 3 is een kleine, krachtige action camera. Superieure stabilisatie, oneindige bevestigingsmogelijkheden en de handige Actionpod maken de GO 3 de perfecte metgezel voor al je avonturen.', 18, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, beschrijving, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 'De Insta360 GO 3 is een kleine, krachtige action camera. Superieure stabilisatie, oneindige bevestigingsmogelijkheden en de handige Actionpod maken de GO 3 de perfecte metgezel voor al je avonturen.', 18, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, beschrijving, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 'De Insta360 GO 3 is een kleine, krachtige action camera. Superieure stabilisatie, oneindige bevestigingsmogelijkheden en de handige Actionpod maken de GO 3 de perfecte metgezel voor al je avonturen.', 18, 241);
 
 /*accu*/
-
+insert into accu (naam, beschrijving, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 'Oplaadbare Batterij (1500mAh) - Canon BP-511A', 12, 204);
+insert into accu (naam, beschrijving, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 'Oplaadbare Batterij (1500mAh) - Canon BP-511A', 12, 204);
+insert into accu (naam, beschrijving, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 'Oplaadbare Batterij (1500mAh) - Canon BP-511A', 12, 204);
+insert into accu (naam, beschrijving, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 'Oplaadbare Batterij (1500mAh) - Canon BP-511A', 12, 204);
+insert into accu (naam, beschrijving, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 'Oplaadbare Batterij (1500mAh) - Canon BP-511A', 12, 204);
+insert into accu (naam, beschrijving, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 'Oplaadbare Batterij (1500mAh) - Canon BP-511A', 12, 204);
+insert into accu (naam, beschrijving, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 'Oplaadbare Batterij (1500mAh) - Canon BP-511A', 12, 204);
+insert into accu (naam, beschrijving, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 'Oplaadbare Batterij (1500mAh) - Canon BP-511A', 12, 204);
 
 /*memorycard*/
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
+insert into memorycard (naam, beschrijving, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', 'Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
 
 
 /*camera_memorycard*/
+insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
+insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
+insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
+insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
+insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
+insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
+insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
+insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
 
 
 /*gebruik*/
@@ -661,12 +721,13 @@ insert into gebruik (soort) values ('video');
 insert into gebruik (soort) values ('lens');
 
 /*tags*/
-
+insert into tags(naam) values ('sale');
+insert into tags(naam) values ('new');
+insert into tags(naam) values ('bestseller');
+insert into tags(naam) values ('garantie');
 
 /*product_tags*/
 
-
-/* 
-snel nieuwe rij producten toevoegen
+insert into product_tags (product_id, tag_id) values (1, 1)
 
 

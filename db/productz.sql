@@ -237,7 +237,6 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Inspire 3','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Mavic 3 ','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Mavic 3 Classic','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Mini 3','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 GO 3','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 ONE RS','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
