@@ -174,7 +174,7 @@ insert into merk (name) values ('samsung');--14
 
 -- Statief
 insert into merk (name) values ('Rollei');--15
-insert into merk (name) values ('Bresser');--16
+insert into merk (name) values ('Benro');--16
 
 -- Drone
 insert into merk (name) values ('DJI');--17
@@ -384,8 +384,58 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme Pro 512GB CFexpress Type-B','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme Pro 512GB CFexpress Type-B','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme PRO V60 SDXC 128GB UHS-II','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-
-
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung MicroSD PRO Ultimate 128GB','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung MicroSD PRO Ultimate 512GB','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung PRO Plus 64GB SDXC UHS-I','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung PRO Plus 128GB SDXC UHS-I','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung PRO Plus 256GB SDXC UHS-I','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung PRO Plus 512GB MicroSDXC UHS-I','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung SD PRO Ultimate 128GB','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung SD PRO Ultimate 256GB','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung SD PRO Ultimate 512GB','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-511A - Canon BP-511','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-E12 Ultra - Canon LP-E12','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-EL3e Ultra - Nikon EN-EL3e','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-F126S Ultra - Fujifilm NP-W126S','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-ON1 Ultra - Olympus BLN-1','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-PLG10HP Ultra - Panasonic DMW-BLG10E','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-X1 - Sony NP-BX1','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-XW50 Ultra - Sony NP-FW50','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Combi C3770TN','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Mach3 TMA37AL','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Mach3 TMA47AL','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Mach3 TMA47AXL','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Mammoth TMTH44C','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Roadtrip Pro BMRTPROABLK','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Roadtrip Pro BMRTPROASLV','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Roadtrip Pro BMRTPROCSLV','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Slim Travel FSL09AN00','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Slim TSL08AS2CSH','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Tortoise TTOR24CGX30','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei C5i aluminium statiefy','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei C5i carbon statief','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei C5i titanium statief','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei C6i carbon statief','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei C6i Pro statief','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Compact Traveler No.1 aluminium statief','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Compact Traveler No.1 statief','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Compact Traveler Star S1 statief','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Easy Traveler Video XL grijs','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Photo A2 statief','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Photo T2 statief','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Air 3','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Avata drone','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Inspire 3','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Mavic 3 ','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Mavic 3 Classic','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Mini 3','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 GO 3','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 ONE RS','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 Pro','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 X3','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Kandao Meeting Pro','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Kandao QooCam 3','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 /*camera*/
 
 
@@ -430,33 +480,31 @@ insert into gebruik (soort) values ('lens');
 
 /* 
 snel nieuwe rij producten toevoegen
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2)
