@@ -23,7 +23,6 @@ CREATE TABLE products (
 CREATE TABLE camera (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255),
-  description TEXT,
   megapixels VARCHAR(255),
   sensor VARCHAR(255),
   fps VARCHAR(255),
@@ -39,7 +38,6 @@ CREATE TABLE lenzen (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
   lenstype BIT, --prime = 0, zoom = 1
-  BESCHRIJVING TEXT,
   merk_id INTEGER,
   product_id INTEGER
 );
@@ -55,7 +53,6 @@ CREATE TABLE statief (
   naam VARCHAR(255),
   materiaal VARCHAR(255),
   draagvermogen VARCHAR(255),
-  beschrijving TEXT,
   merk_id INTEGER,
   product_id INTEGER
 );
@@ -66,7 +63,6 @@ CREATE TABLE drone (
   gewicht VARCHAR(255),
   v4Kvideo BIT,
   batterijgrootte VARCHAR(255),
-  beschrijving TEXT,
   merk_id INTEGER,
   product_id INTEGER
 );
@@ -74,9 +70,8 @@ CREATE TABLE drone (
 CREATE TABLE driezestigcamera (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  gewichtKG VARCHAR(255),
+  gewicht VARCHAR(255),
   bluetooth BIT,
-  beschrijving TEXT,
   merk_id INTEGER,
   product_id INTEGER
 );
@@ -84,7 +79,6 @@ CREATE TABLE driezestigcamera (
 CREATE TABLE accu (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  beschrijving TEXT,
   merk_id INTEGER,
   camera_id INTEGER,
   product_id INTEGER
@@ -93,7 +87,6 @@ CREATE TABLE accu (
 CREATE TABLE memorycard (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  beschrijving TEXT,
   capacityGB VARCHAR(255),
   videospeed VARCHAR(255),
   readingspeed VARCHAR(255),
@@ -177,27 +170,27 @@ insert into merk (name) values ('Kandao');--19
 
 /*products*/ 
 --cameras
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7 mark III body','een hele goeie camera', '1843437', 1499.99, 1, 1);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7 mark IV body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7R V body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6100 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6400 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6600 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6700 body','een hele goeie camera', '1843437', 1499.99, 1, 1);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony vlog camera ZV-E10 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('sony alpha a1','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony FX3 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony FX30 body','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7C2 zilver','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony a7c','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('sony a9III','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony zv-e1','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX10 mark IV','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark III','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark VA','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark VII','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony vlog camera ZV-1','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R6 body','een ultraa goeie camera', '1253437', 1999.99, 3, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7 mark III body','een hele goeie camera', '1843437', 1849, 1, 1);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7 mark IV body','een ultraa goeie camera', '1253437', 2699, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7R V body','een ultraa goeie camera', '1253437', 4499, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6100 body','een ultraa goeie camera', '1253437', 749, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6400 body','een ultraa goeie camera', '1253437', 949, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6600 body','een ultraa goeie camera', '1253437', 1299, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6700 body','een hele goeie camera', '1843437', 1699, 1, 1);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony vlog camera ZV-E10 body','een ultraa goeie camera', '1253437', 749, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('sony alpha a1','een ultraa goeie camera', '1253437', 7199, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony FX3 body','een ultraa goeie camera', '1253437', 4699, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony FX30 body','een ultraa goeie camera', '1253437', 2299, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7C2 zilver','een ultraa goeie camera', '1253437', 2399, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony a7c','een ultraa goeie camera', '1253437', 2399, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('sony a9III','een ultraa goeie camera', '1253437', 6999, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony zv-e1','een ultraa goeie camera', '1253437', 2599, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX10 mark IV','een ultraa goeie camera', '1253437', 1699, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark III','een ultraa goeie camera', '1253437', 549, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark VA','een ultraa goeie camera', '1253437', 799, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark VII','een ultraa goeie camera', '1253437', 1499, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony vlog camera ZV-1','een ultraa goeie camera', '1253437', 679, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R6 body','een ultraa goeie camera', '1253437', 1999, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R6 mark II body','een ultraa goeie camera', '1253437', 1999.99, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R7 body','een ultraa goeie camera', '1253437', 1999.99, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS R8 body','een ultraa goeie camera', '1253437', 1999.99, 3, 2);
@@ -335,16 +328,16 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Nikon NIKKOR Z 100-400mm F4.5-5.6 VR S','een ultraa goeie camera', '1253437', 1999.99, 2, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Nikon NIKKOR Z 180-600mm F5.6-6.3 VR','een ultraa goeie camera', '1253437', 1999.99, 2, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Nikon Z DX 24mm F1.7','een ultraa goeie camera', '1253437', 1999.99, 2, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix G 14mm F2.5 II ASPH','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix G 25mm F1.7 ASPH','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix G Vario 14-140mm F3.5-5.6 Power OIS WR','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic LUMIX S 18mm F1.8','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 20-60mm F3.5-5.6 L-mount','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 24-105mm F4.0 Macro OIS','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 50mm F1.8','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 70-300mm F4.5-5.6 Macro OIS','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 85mm F1.8','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S Pro 70-200mm F2.8','een ultraa goeie camera', '1253437', 1999.99, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix G 14mm F2.5 II ASPH','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix G 25mm F1.7 ASPH','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix G Vario 14-140mm F3.5-5.6 Power OIS WR','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic LUMIX S 18mm F1.8','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 20-60mm F3.5-5.6 L-mount','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 24-105mm F4.0 Macro OIS','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 50mm F1.8','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 70-300mm F4.5-5.6 Macro OIS','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S 85mm F1.8','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix S Pro 70-200mm F2.8','een ultraa goeie camera', '1253437', 1999.99, 4, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hasselblad Lens XCD 120mm F3.5','een ultraa goeie camera', '1253437', 1999.99, 11, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hasselblad XCD 35-75mm F3.5-4.5','een ultraa goeie camera', '1253437', 1999.99, 11, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hasselblad XCD 45mm F4.0 P','een ultraa goeie camera', '1253437', 1999.99, 11, 2);
@@ -424,68 +417,65 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Kandao Meeting Pro','een ultraa goeie camera', '1253437', 1999.99, 19, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Kandao QooCam 3','een ultraa goeie camera', '1253437', 1999.99, 19, 2);
 /*camera*/
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
-insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
+--remove everything to do with description
+
+
 insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
 insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
 insert into camera (name, description, megapixels, sensor, fps, bitrate, geheugenkaartslots, merk_id, gebruik_id, product_id) values ('Sony A7 mark III body', 'De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '24.4', 'full-frame', '10fps', '100','2', 1, 1, 1); 
@@ -644,7 +634,7 @@ insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, prod
 insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
 insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
 insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
-insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);\
+insert into statief (naam, materiaal, draagvermogen, beschrijving, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 'De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg.', 16, 213);
 
 /*drone*/
 insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, beschrijving, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 'Ga de lucht in met de DJI Air 3 drone en til jouw luchtopnames naar een hoger niveau met de twee krachtige cameras, Wide-Angle en Medium Telephoto met 3x zoom.', 17, 235);
@@ -720,10 +710,10 @@ insert into gebruik (soort) values ('video');
 insert into gebruik (soort) values ('lens');
 
 /*tags*/
-insert into tags(naam) values ('sale');
-insert into tags(naam) values ('new');
-insert into tags(naam) values ('bestseller');
-insert into tags(naam) values ('garantie');
+insert into tags(tagname) values ('sale');
+insert into tags(tagname) values ('new');
+insert into tags(tagname) values ('bestseller');
+insert into tags(tagname) values ('garantie');
 
 /*product_tags*/
 
