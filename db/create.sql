@@ -1112,6 +1112,7 @@ insert into camera_lenzen (camera_id, lenzen_id) values (30, 8);
 insert into camera_lenzen (camera_id, lenzen_id) values (30, 9);
 insert into camera_lenzen (camera_id, lenzen_id) values (30, 10);
 
+
 /*camera_memorycard*/
 insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
 insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
