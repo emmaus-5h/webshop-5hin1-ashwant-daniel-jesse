@@ -37,6 +37,7 @@ CREATE TABLE lenzen (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
   lenstype BIT, --prime = 0 (niet kunnen zoomen), zoom = 1 (kan wel inzoomen)
+  gewicht VARCHAR(255), -- gewicht van lens in kilogram
   product_id INTEGER
 );
 
@@ -74,7 +75,8 @@ CREATE TABLE driezestigcamera (
 CREATE TABLE accu (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  camera_id INTEGER,
+  aantal_volt INTEGER,
+  capaciteit INTEGER, -- capaciteit in mAh
   product_id INTEGER
 );
 
@@ -171,13 +173,13 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6600 body','De Sony Alpha 6600 Body is de opvolger van de A6500. Het is een APS-C-formaat spiegelloze digitale camera die snel en stabiel is. De camera beschikt over een snelle automatische scherpstelling van slechts 0,02 seconden, steeds verbeterende Eye Autofocus, EISA award winnende Animal Eye Auto Focus en Real-time Tracking.', '89402', 1299, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A6700 body','De Sony A6700 systeemcamera is een full frame innovatie in APS-C formaat. Ervaar een uitstekende beeldkwaliteit, precieze autofocus en ongelimiteerde creativiteit in een klein, handzaam pakketje.', '859403', 1699, 1, 1);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony vlog camera ZV-E10 body','De Sony ZV-E10 is de perfecte compact camera waarmee jij aan de slag kunt met het creëren van video’s en foto’s. Deze vlogging camera beschikt over belangrijke en fijne features, zeker wanneer je veel aan de slag gaat met het maken van content voor sociale media.', '84932', 749, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony alpha a1','De Sony Alpha A1 is een full frame systeemcamera waarmee jij als content maker alle kanten op kunt. Je hoeft met deze camera nergens compromissen te sluiten en kunt aan de slag met het maken van hoge resolutie beelden, indrukwekkende 8K video-opnames en snelheid.', '758943', 7199, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Alpha A1','De Sony Alpha A1 is een full frame systeemcamera waarmee jij als content maker alle kanten op kunt. Je hoeft met deze camera nergens compromissen te sluiten en kunt aan de slag met het maken van hoge resolutie beelden, indrukwekkende 8K video-opnames en snelheid.', '758943', 7199, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony FX3 body','De Sony FX3 neemt je mee in de wereld van cinema. De videocamera is supercompact maar heeft alles wat je als cinematograaf zoekt. 4K beeldkwaliteit, low-light, real-time Eye AF & touch tracking en nog veel meer.', '748293', 4699, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony FX30 body','een ultraa goeie camera', '7592', 2299, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7C2 zilver','De Sony FX30 APS-C videocamera brengt de visie van content creators tot leven en biedt eenvoudige toegang tot de creatieve cinema wereld.', '76894', 2399, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony a7c','Leg het leven vast zoals je het ziet met de Alpha 7C systeemcamera van Sony. Deze veelzijdige systeemcamera beschikt over een 24.2 megapixel Exmor R CMOS-sensor en heeft een ISO-bereik van 100-51200 waardoor het mogelijk wordt om in alle lichtsituaties gedetailleerde fotos en videos te maken.', '589023', 2399, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony a9III','De Sony A9 III is de nieuwe razendsnelle full frame systeemcamera op de markt, perfect voor alle sport- en wildlifefotografen. Dankzij de global shutter, een absolute wereldprimeur voor een professionele systeemcamera, leg je zelfs de snelste onderwerpen vast zonder dat er vervorming optreedt.', '59034', 6999, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony zv-e1','De Sony ZV-E1 is de camera voor iedere content creator die op zoek is naar unieke functies voor cinematic content & veeleisende videomakers die op zoek zijn naar de beste opnamen. ', '75829', 2599, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7C','Leg het leven vast zoals je het ziet met de Alpha 7C systeemcamera van Sony. Deze veelzijdige systeemcamera beschikt over een 24.2 megapixel Exmor R CMOS-sensor en heeft een ISO-bereik van 100-51200 waardoor het mogelijk wordt om in alle lichtsituaties gedetailleerde fotos en videos te maken.', '589023', 2399, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A9III','De Sony A9 III is de nieuwe razendsnelle full frame systeemcamera op de markt, perfect voor alle sport- en wildlifefotografen. Dankzij de global shutter, een absolute wereldprimeur voor een professionele systeemcamera, leg je zelfs de snelste onderwerpen vast zonder dat er vervorming optreedt.', '59034', 6999, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony ZV-E1','De Sony ZV-E1 is de camera voor iedere content creator die op zoek is naar unieke functies voor cinematic content & veeleisende videomakers die op zoek zijn naar de beste opnamen. ', '75829', 2599, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX10 mark IV','De Sony Cybershot DSC-RX10 Mark IV is een compacte camera met een snelle autofocus van 0,03 seconden en kan tot 24fps continu fotograferen.', '758923', 1699, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark III','De Sony Cybershot DSC-RX100 mark III is een geavanceerde point-and-shoot compact camera met een grote 20,1 megapixel 1 inch Exmor R CMOS-sensor om hoge resolutie beelden en Full HD-video te produceren.', '758329', 549, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark VA','De Sony Cybershot DSC-RX100 mark VA is het nieuwste vlaggenschip model onder de compactcameras van Sony. Deze nieuwe versie beschikt over de BIONZ X processor waardoor je onder meer profiteert van een 1.8x snellere autofocus.', '749328', 799, 1, 2);
@@ -351,7 +353,7 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Pentax HD FA 43mm F1.9 Limited','een ultraa goeie camera', '45785645', 699, 10, 2);
 
 
---geheugenkaarten
+--memorycard
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme 64GB SDXC UHS-I','een ultraa goeie camera', '7547578', 22, 13, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme 128GB MicroSDXC UHS-I','een ultraa goeie camera', '457856', 19, 13, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme Pro 1TB microSDXC 200MBs UHS-I','een ultraa goeie camera', '4584558', 199, 13, 2);
@@ -516,114 +518,155 @@ insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Hasselblad X2D 100c body', '100.0', 'full-frame', '3.3fps', '16','1', 84); 
 
 /*lenzen database*/
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 85);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 86);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
-insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1.180, 85);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon EF 24-105mm F4.0L IS II USM', 1, 0.795, 86);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon EF 50mm F1.8 STM', 0, 0.159, 87);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon RF 16mm F2.8 STM', 0, 0.165, 88);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon RF 24-70mm F2.8L IS USM', 1, 0.9, 89);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon RF 24-105mm F4L IS USM', 1, 0.7, 90);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon RF 35mm F1.8 IS Macro STM', 0, 0.305, 91);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon RF 50mm F1.8 STM', 0, 0.160, 92);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon RF 70-200mm F2.8L IS USM', 1, 1.070, 93);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon RF 100-400mm F5.6-8 IS USM', 1, 0.635, 94);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 10-18mm F2.8 DC DN Contemporary FUJI X', 1, 0.260, 95);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 14-24mm F2.8 DG HSM ART Canon EF', 1, 0.795, 96);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 14mm F1.4 DG DN ART Sony FE', 0, 1.170, 97);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 16mm F1.4 DC DN Contemporary Fujifilm X', 0, 0.405, 98);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 18-35mm F1.8 DC HSM ART Canon EF-S', 1, 0.810, 99);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 18-35mm F1.8 DC HSM ART Nikon DX', 1, 0.810, 100);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 18-50mm F2.8 DC DN Contemporary Fujifilm X', 1, 0.290, 101);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 18-50mm F2.8 DC DN Contemporary Sony E', 1, 0.290, 102);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 20mm F1.4 DG HSM ART Sony FE', 0, 0.950, 103);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 24-70mm F2.8 DG OS HSM ART Nikon FX', 1, 1.020, 104);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 24-105mm F4.0 DG OS HSM ART Nikon FX', 1, 0.885, 105);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 30mm F1.4 DC DN Contemporary Canon EF-M', 0, 0.270, 106);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 35mm F2.0 DG DN Contemporary Sony FE', 0, 0.325, 107);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 50mm F1.4 DG DN ART Sony FE', 0, 0.670, 108);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 56mm F1.4 DC DN Contemporary Sony E', 0, 0.280, 109);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 70-200mm F2.8 DG OS HSM Sports Canon EF', 1, 1.805, 110);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 85mm F1.4 ART DG HSM Nikon FX', 0, 1.130, 111);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 90mm F2.8 DG DN Contemporary Sony FE', 0, 0.295, 112);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 105mm F2.8 EX DG Macro OS HSM Nikon', 0, 0.725, 113);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sigma 150-600mm F5-6.3 DG OS HSM Contemporary Canon EF', 1, 1.930, 114);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony E 11mm F1.8', 0, 0.181, 115);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony E 55-210mm F4.5-6.3 OSS', 1, 0.345, 116);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony E 70-350mm F4.5-6.3 G OSS', 1, 0.625, 117);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 12-24mm F2.8 GM', 1, 0.847, 118);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 16-35mm F4.0 G PZ', 1, 0.353, 119);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 20-70mm F4.0 G', 1, 0.488, 120);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 24-70mm F2.8 GM II', 1, 0.695, 121);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 24-105mm F4.0G OSS', 1, 0.663, 122);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 35mm F1.8', 0, 0.280, 123);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 50mm F1.8', 0, 0.186, 124);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 70-200mm F2.8 GM OSS II', 1, 1.045, 125);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 90mm F2.8G Macro OSS', 0, 0.602, 126);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 100-400mm F4.5-5.6 GM OSS', 1, 1.395, 127);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Sony FE 135mm F1.8 GM', 0, 0.950, 128);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm GF 20-35mm f4.0 R WR', 1, 0.725, 129);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm XC 15-45mm F3.5-5.6 OIS PZ', 1, 0.135, 130);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm XF 18-55mm F2.8-4.0 R LM OIS', 1, 0.310, 131);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm XF 27mm F2.8 R WR', 0, 0.084, 132);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm XF 35mm F1.4 R', 0, 0.187, 133);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm XF 35mm F2.0 R WR zwart', 0, 0.170, 134);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm XF 50-140mm F2.8 R LM OIS WR', 1, 0.995, 135);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm XF 56mm F1.2 R WR', 0, 0.445, 136);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm XF 70-300mm F4.0-5.6 R LM OIS WR', 1, 0.580, 137);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Fujifilm XF 80mm F2.8 Macro', 0, 0.750, 138);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11084 Summilux-TL 35mm F1.4 ASPH', 0, 0.428, 139);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11177 SL Super-Vario-Elmarit 16-35mm F3.5-4.5 ASPH', 1, 0.990, 140);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11183 APO-Summicron-SL 28mm F2.0 ASPH', 0, 0.700, 141);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11189 Vario-Elmarit-SL 24-70mm F2.8 ASPH', 1, 0.856, 142);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11191 VARIO-ELMAR-SL 100-400', 1, 1.530, 143);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11667 Noctilux-M 50mm F0.95 ASPH', 0, 0.700, 144);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11677 M Elmarit 28mm F2.8 ASPH', 0, 0.180, 145);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11726 Summilux-M 35mm f1.4 ASPH', 0, 0.338, 146);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11728 Summilux-M 50mm F1.4 ASPH Black', 0, 0.337, 147);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Leica 11889 Apo-Telyt-M 135mm F3.4', 0, 0.450, 148);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon AF-S 18-300mm F3.5-6.3G ED VR DX', 1, 0.550, 149);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon AF-S 50mm F1.8G', 0, 0.185, 150);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon NIKKOR Z 24-50mm F4-6.3', 1, 0.195, 151);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon NIKKOR Z 24-70mm F4.0 S', 1, 0.500, 152);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon NIKKOR Z 24-120mm F4.0 S', 1, 0.630, 153);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon NIKKOR Z 24-200mm F4.0-6.3 VR', 1, 0.570, 154);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon NIKKOR Z 70-200mm F2.8 VR S', 1, 0.220, 155);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon NIKKOR Z 100-400mm F4.5-5.6 VR S', 1, 1.355, 156);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon NIKKOR Z 180-600mm F5.6-6.3 VR', 1, 1.955, 157);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Nikon Z DX 24mm F1.7', 0, 0.135, 158);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic Lumix G 14mm F2.5 II ASPH', 0, 0.055, 159);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic Lumix G 25mm F1.7 ASPH', 0, 0.125, 160);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic Lumix G Vario 14-140mm F3.5-5.6 Power OIS WR', 1, 0.265, 161);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic LUMIX S 18mm F1.8', 0, 0.340, 162);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic Lumix S 20-60mm F3.5-5.6 L-mount', 1, 0.350, 163);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic Lumix S 24-105mm F4.0 Macro OIS', 1, 0.955, 164);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic Lumix S 50mm F1.8', 0, 0.300, 165);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic Lumix S 70-300mm F4.5-5.6 Macro OIS', 1, 0.780, 166);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic Lumix S 85mm F1.8', 0, 0.355, 167);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Panasonic Lumix S Pro 70-200mm F2.8', 1, 1.570, 168);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Hasselblad Lens XCD 120mm F3.5', 0, 0.970, 169);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Hasselblad XCD 35-75mm F3.5-4.5', 1, 1.115, 170);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Hasselblad XCD 45mm F4.0 P', 0, 0.320, 171);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Hasselblad XCD 80mm F1.9', 0, 1.044, 172);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Mitakon Speedmaster 65mm F1.4 Hasselblad XCD', 0, 1.050, 173);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Olympus M.Zuiko Digital 45mm F1.2 ED PRO', 0, 0.410, 174);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Olympus M.Zuiko Digital ED 7-14mm F2.8 PRO', 1, 0.534, 175);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Olympus M.Zuiko Digital ED 12-100mm F4.0 PRO', 1, 0.520, 176);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Olympus M.Zuiko Digital ED 60mm F2.8 Macro', 0, 0.180, 177);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Olympus M.Zuiko Digital ED 100-400mm F5.0-6.3 IS', 1, 1.120, 178);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Pentax 18-55mm F3.5-5.6 DA AL WR', 1, 0.225, 179);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Pentax 100mm F2.8 HD DFA ED AW Macro zwart', 0, 0.348, 180);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Pentax D HD FA 70-210mm F4 ED SDM WR', 1, 0.819, 181);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Pentax FA 70-200mm F2.8 ED DC AW', 1, 1.755, 182);
+insert into lenzen (naam, lenstype, gewicht, product_id) values ('Pentax HD FA 43mm F1.9 Limited', 1, 0.155, 183);
+
+/*memorycard database*/
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 128GB MicroSDXC UHS-I', '128GB', 'v30', '190MB/s', '90MB/s', 185);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 1TB microSDXC 200MBs UHS-I', '1TB', 'v30', '200MB/s', '14MB/s', 186);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 1TB SDXC', '1TB', 'v30', '200MB/s', '140MB/s', 187);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 188);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 128GB CFexpress Type-B', '128GB', 'v30', '1700MB/s', '1200MB/s', 189);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 128GB MicroSDXC UHS-I', '128GB', 'v30', '200MB/s', '90MB/s', 190);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 128GB SDXC UHS-I', '128GB', 'v30', '200MB/s', '90MB/s', 191);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 256GB SDXC UHS-II', '256GB', 'v90', '300MB/s', '260MB/s', 192);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 512GB CFexpress Type-B', '512GB', 'v90', '1700MB/s', '1500MB/s', 193);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 512GB SDXC UHS-I', '512GB', 'v30', '200MB/s', '140MB/s', 194);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme PRO V60 SDXC 128GB UHS-II', '128GB', 'v60', '280MB/s', '100MB/s', 195);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung MicroSD PRO Ultimate 128GB', '128GB', 'v30', '200MB/s', '130MB/s', 196);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung MicroSD PRO Ultimate 512GB', '512GB', 'v30', '200MB/s', '130MB/s', 197);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung PRO Plus 64GB SDXC UHS-I', '64GB', 'v30', '180MB/s', '130MB/s', 198);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung PRO Plus 128GB SDXC UHS-I', '128GB', 'v30', '180MB/s', '130MB/s', 199);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung PRO Plus 256GB SDXC UHS-I', '256GB', 'v30', '180MB/s', '130MB/s', 200);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung PRO Plus 512GB MicroSDXC UHS-I', '512GB', 'v30', '180MB/s', '130MB/s', 201);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung SD PRO Ultimate 128GB', '128GB', 'v30', '200MB/s', '130MB/s', 202);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung SD PRO Ultimate 256GB', '256GB', 'v30', '200MB/s', '130MB/s', 203);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung SD PRO Ultimate 512GB', '64GB', 'v30', '200MB/s', '130MB/s', 204);
+
+/*accu database*/
+insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-511A - Canon BP-511', 7.4, 1500, 205);
+insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-E12 Ultra - Canon LP-E12', 7.2, 850, 206);
+insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-EL3e Ultra - Nikon EN-EL3e', 7.4, 2000, 207);
+insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-F126S Ultra - Fujifilm NP-W126S', 7.2, 1130, 208);
+insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-ON1 Ultra - Olympus BLN-1', 7.6, 1170, 209);
+insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-PLG10HP Ultra - Panasonic DMW-BLG10E', 3.7, 1000, 210);
+insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-X1 - Sony NP-BX1', 3.6, 1170, 211);
+insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-XW50 Ultra - Sony NP-FW50', 7.2, 1000, 212);
 
 /*statief database*/
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'Carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 214);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 215);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 216);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 217);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 218);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 219);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 220);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 221);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 222);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 223);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 224);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 225);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 226);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 227);
 
 /*drone database*/
 insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
@@ -640,41 +683,6 @@ insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Ins
 insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
 insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
 insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
-
-/*accu database*/
-insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
-insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
-insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
-insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
-insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
-insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
-insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
-
-/*memorycard database*/
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
 
 
 -- Connecties
