@@ -20,6 +20,7 @@ CREATE TABLE products (
   gebruik_id INTEGER
 );
 
+
 CREATE TABLE camera (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255),
@@ -41,10 +42,22 @@ CREATE TABLE lenzen (
   product_id INTEGER
 );
 
-CREATE TABLE camera_lenzen (
+CREATE TABLE accu (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  camera_id INTEGER,
-  lenzen_id INTEGER
+  naam VARCHAR(255),
+  aantal_volt VARCHAR(255),
+  capaciteit VARCHAR(255), -- capaciteit in mAh
+  product_id INTEGER
+);
+
+CREATE TABLE memorycard (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  naam VARCHAR(255),
+  capacityGB VARCHAR(255),
+  videospeed VARCHAR(255),
+  readingspeed VARCHAR(255),
+  writingspeed VARCHAR(255),
+  product_id INTEGER
 );
 
 CREATE TABLE statief (
@@ -59,8 +72,10 @@ CREATE TABLE drone (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
   gewicht VARCHAR(255),
-  v4Kvideo BIT,
-  batterijgrootte VARCHAR(255),
+  v4Kvideo BIT,                   -- 0 = geen 4k camera, 1 = wel 4k camera
+  batterijgrootte VARCHAR(255),   -- in mAh
+  bereik_controller VARCHAR(255), -- in km
+  maximale_snelheid VARCHAR(255), -- in km/h
   product_id INTEGER
 );
 
@@ -72,22 +87,10 @@ CREATE TABLE driezestigcamera (
   product_id INTEGER
 );
 
-CREATE TABLE accu (
+CREATE TABLE camera_lenzen (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  naam VARCHAR(255),
-  aantal_volt INTEGER,
-  capaciteit INTEGER, -- capaciteit in mAh
-  product_id INTEGER
-);
-
-CREATE TABLE memorycard (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  naam VARCHAR(255),
-  capacityGB VARCHAR(255),
-  videospeed VARCHAR(255),
-  readingspeed VARCHAR(255),
-  writingspeed VARCHAR(255),
-  product_id INTEGER
+  camera_id INTEGER,
+  lenzen_id INTEGER
 );
 
 CREATE TABLE camera_memorycard (
@@ -653,36 +656,42 @@ insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL
 
 /*statief database*/
 insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'Carbon', '18kg', 213);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 214);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 215);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 216);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 217);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 218);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 219);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 220);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 221);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 222);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 223);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 224);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 225);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 226);
-insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 227);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Mach3 TMA37AL', 'Aluminium', '16kg', 214);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Mach3 TMA47AL', 'Aluminium', '20kg', 215);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Mach3 TMA47AXL', 'Aluminium', '20kg', 216);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Mammoth TMTH44C', 'Carbon', '25kg', 217);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Roadtrip Pro BMRTPROABLK', 'Aluminium', '8kg', 218);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Roadtrip Pro BMRTPROASLV', 'Aluminium', '8kg', 219);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Roadtrip Pro BMRTPROCSLV', 'Carbon', ' 8kg', 220);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Slim Travel FSL09AN00', 'Aluminium', '4kg', 221);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Slim TSL08AS2CSH', 'Aluminium', '2.5kg', 222);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Tortoise TTOR24CGX30', 'Carbon', '16kg', 223);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei C5i aluminium statief', 'Aluminium', '8kg', 224);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei C5i carbon statief', 'Carbon', '8kg', 225);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei C5i titanium statief', 'Aluminium', '8kg', 226);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei C6i carbon statief', 'Carbon', '12kg', 227);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei C6i Pro statief', 'Carbon', '12kg', 228);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei Compact Traveler No.1 aluminium statief', 'Aluminium', '5kg', 229);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei Compact Traveler No.1 statief', 'Carbon', '8kg', 230);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei Compact Traveler Star S1 statief', 'Aluminium', '2kg', 231);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei Easy Traveler Video XL grijs', 'Carbon', '6kg', 232);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei Photo A2 statief', 'Carbon', '8kg', 233);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei Photo T2 statief', 'Aluminium', '8kg', 234);
 
 /*drone database*/
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Air 3', 0.720, 1, 5200, 8.0, 75, 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Avata drone', 0.410, 1, 2420, 10.0, 97, 236);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Inspire 3', 4.310, 1, 4280, 15.0, 94, 237);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Mavic 3 Classic', 0.895, 1, 5000, 15.0, 75, 238);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Mini 3', 0.249, 1, 2453, 10.0, 65, 239);
 
 /*driezestigcamera database*/
-insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', 35.5, 1, 240);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 ONE RS', 239, 1, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 Pro', 1550, 0, 242);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 X3', 180, 1, 243);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Kandao Meeting Pro', 1484, 0, 244);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', 201, 0, 245);
 
 
 -- Connecties
