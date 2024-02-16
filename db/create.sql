@@ -29,7 +29,6 @@ CREATE TABLE camera (
   bitrate VARCHAR(255),
   geheugenkaartslots VARCHAR(255),
   schermgrootte VARCHAR(255),
-  merk_id INTEGER,
   gebruik_id INTEGER,
   product_id INTEGER
 );
@@ -38,7 +37,6 @@ CREATE TABLE lenzen (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
   lenstype BIT, --prime = 0 (niet kunnen zoomen), zoom = 1 (kan wel inzoomen)
-  merk_id INTEGER,
   product_id INTEGER
 );
 
@@ -53,7 +51,6 @@ CREATE TABLE statief (
   naam VARCHAR(255),
   materiaal VARCHAR(255),
   draagvermogen VARCHAR(255),
-  merk_id INTEGER,
   product_id INTEGER
 );
 
@@ -63,7 +60,6 @@ CREATE TABLE drone (
   gewicht VARCHAR(255),
   v4Kvideo BIT,
   batterijgrootte VARCHAR(255),
-  merk_id INTEGER,
   product_id INTEGER
 );
 
@@ -72,14 +68,12 @@ CREATE TABLE driezestigcamera (
   naam VARCHAR(255),
   gewicht VARCHAR(255),
   bluetooth BIT,
-  merk_id INTEGER,
   product_id INTEGER
 );
 
 CREATE TABLE accu (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  merk_id INTEGER,
   camera_id INTEGER,
   product_id INTEGER
 );
@@ -91,7 +85,6 @@ CREATE TABLE memorycard (
   videospeed VARCHAR(255),
   readingspeed VARCHAR(255),
   writingspeed VARCHAR(255),
-  merk_id INTEGER,
   product_id INTEGER
 );
 
@@ -111,7 +104,7 @@ CREATE TABLE gebruik(
 CREATE TABLE tags (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   tagname VARCHAR(255)
---bv "sale", "new", "bestseller","garantie"
+--bijv. "sale", "new", "bestseller","garantie"
 );
 
 CREATE TABLE product_tags (
@@ -185,7 +178,7 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony a7c','Leg het leven vast zoals je het ziet met de Alpha 7C systeemcamera van Sony. Deze veelzijdige systeemcamera beschikt over een 24.2 megapixel Exmor R CMOS-sensor en heeft een ISO-bereik van 100-51200 waardoor het mogelijk wordt om in alle lichtsituaties gedetailleerde fotos en videos te maken.', '589023', 2399, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony a9III','De Sony A9 III is de nieuwe razendsnelle full frame systeemcamera op de markt, perfect voor alle sport- en wildlifefotografen. Dankzij de global shutter, een absolute wereldprimeur voor een professionele systeemcamera, leg je zelfs de snelste onderwerpen vast zonder dat er vervorming optreedt.', '59034', 6999, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony zv-e1','De Sony ZV-E1 is de camera voor iedere content creator die op zoek is naar unieke functies voor cinematic content & veeleisende videomakers die op zoek zijn naar de beste opnamen. ', '75829', 2599, 1, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX10 mark IV','De Sony Cybershot DSC-RX10 Mark IV is een compacte camera met een snelle autofocus van 0,03 seconden en kan tot24 fps continu fotograferen.', '758923', 1699, 1, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX10 mark IV','De Sony Cybershot DSC-RX10 Mark IV is een compacte camera met een snelle autofocus van 0,03 seconden en kan tot 24fps continu fotograferen.', '758923', 1699, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark III','De Sony Cybershot DSC-RX100 mark III is een geavanceerde point-and-shoot compact camera met een grote 20,1 megapixel 1 inch Exmor R CMOS-sensor om hoge resolutie beelden en Full HD-video te produceren.', '758329', 549, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark VA','De Sony Cybershot DSC-RX100 mark VA is het nieuwste vlaggenschip model onder de compactcameras van Sony. Deze nieuwe versie beschikt over de BIONZ X processor waardoor je onder meer profiteert van een 1.8x snellere autofocus.', '749328', 799, 1, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony Cybershot DSC-RX100 mark VII','De Sony Cybershot DSC-RX100 mark VII is een compacte camera die prestaties levert van groot formaat. De nieuwste toevoeging aan de RX-serie levert enorm snelle prestaties en biedt meerdere functies met betrekking tot autofocus, waaronder realtime tracking en realtime oog-autofocus.', '78349', 1499, 1, 2);
@@ -198,7 +191,7 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS 5D Mark IV body','De Canon 5D Mark IV is een full frame spiegelreflexcamera van absolute wereldklasse. Al jaren staat de 5D-serie voor topkwaliteit en de Mark IV zet deze traditie vol overgave voort. Je legt alles haarscherp vast met de maar liefst 30.4 megapixel full frame CMOS-sensor met een ISO-gevoeligheid tot 32.000.', '364232', 2699, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS 6D mark II body','De Canon EOS 6D mark II body is een full frame spiegelreflexcamera voorzien van 26,2 megapixel en een DIGIC 7-processor.', '643246', 1339, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS 250D body zwart','De Canon EOS 250D body zwart is een lichtgewicht en gebruiksvriendelijke spiegelreflexcamera. De EOS 250D zorgt voor uitstekende beelden dankzij 24,1 Megapixel CMOS APS-C sensor. De DIGIC 8-beeldprocessor biedt geweldige prestaties, zelfs wanneer er weinig licht is.', '326634', 549, 3, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS 850D Body','De Canon EOS 850D spiegelreflexcamera is ontworpen voor de enthousiaste fotograaf, die op zoek is naar foto's en video's van nog hogere kwaliteit.', '326466', 729, 3, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS 850D Body','De Canon EOS 850D spiegelreflexcamera is ontworpen voor de enthousiaste fotograaf, die op zoek is naar fotos en videos van nog hogere kwaliteit.', '326466', 729, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EOS 2000D body','De Canon EOS 2000D Body is een veelzijdige en gebruiksvriendelijke spiegelreflexcamera die perfect is voor de beginnende fotograaf. Met deze camera maak je heldere, gedetailleerde fotos met levensechte kleuren en kun je videos in hoogwaardige Full HD kwaliteit opnemen.', '23466', 439, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon Powershot G1X mark III','De Canon Powershot G1X mark III is ideaal als je opzoek bent naar een compact en alles-in-één alternatief voor een DSLR.', '234646', 1099, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon Powershot G7X mark III zwart','Met de Canon PowerShot G7 X Mark III compactcamera maak je fotos die voldoen aan de verwachtingen van wat je gewend bent met je smartphone en deze zelfs overtreffen.', '781239', 769, 3, 2);
@@ -227,7 +220,7 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix DC-S5 IIX body','De Panasonic Lumix S5 IIX is een toevoeging aan de populaire LUMIX S serie. De systeemcamera heeft ongelooflijke foto- en videoprestaties in een aantrekkelijk, compact ontwerp.', '354564', 2499, 4, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix DC-TZ200D','Met de Panasonic Lumix DC-TZ200D compactcamera haal je de ideale reisgenoot in huis. Deze imponerende camera is uitgerust met een Leica DC Vario-Elmar groothoeklens van 24 mm en 15x optische zoom, zodat je vrijwel elke fotografische situatie aankunt.', '3425436', 799, 4, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix DMC-FZ2000','De Panasonic LUMIX DMC-FZ2000 is een compactcamera die vanwege zijn hoogwaardige foto- en videografische prestaties geschikt is voor zowel semi-professionele videomakers als veeleisende fotografen.', '3466587', 999, 4, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic LUMIX DMC-G80 body','De Panasonic LUMIX DMC-G80 is voorzien van een 16 megapixel sensor waarmee u foto's en video's in hoge 4K kwaliteit kunt vastleggen, zelfs in omstandigheden met weinig licht.', '3467839', 699, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic LUMIX DMC-G80 body','De Panasonic LUMIX DMC-G80 is voorzien van een 16 megapixel sensor waarmee u fotos en videos in hoge 4K kwaliteit kunt vastleggen, zelfs in omstandigheden met weinig licht.', '3467839', 699, 4, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix FZ-330','De Panasonic Lumix FZ-330 is een compacte camera met een stof- en spatwaterdichte behuizing, ideaal om mee op pad te nemen.', '758239', 499, 4, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix G70 body','De Panasonic G70 body is een 4K systeemcamera.', '573829', 559, 4, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Panasonic Lumix G91','De Panasonic LUMIX DC-G91 is een compacte systeemcamera met een geweldige combinatie van foto en video voor amateurs en professionals. Maak prachtige, scherpe fotos met de 20,3-megapixel Micro FourThirds MOS-sensor.', '543789', 999, 4, 2);
@@ -237,7 +230,7 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Fujifilm X-S10 body','De Fujifilm X-S10 mag wel zeer compact en slank zijn, maar deze camera levert hoogwaardige prestaties. Hij is namelijk uitgerust met dezelfde beeldsensor en processor als de award-winning X-T4. De beeldregistratie en beeldverwerking zijn dus van absolute topklasse.', '23562', 849, 4, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Fujifilm X-S20 body','De Fujifilm X-S20 is de ultieme all-in-one camera waarin prestaties van topkwaliteit worden gecombineerd met een compacte, lichtgewicht behuizing.', '2354754', 1299, 4, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Fujifilm X-T5 body','De Fujifilm X-T5 combineert de nostalgische look en feel van analoge camera’s met verbluffende resultaten.', '235542', 1999, 4, 2);
-insert into products (name, description, code, price, merk_id, gebruik_id) values ('Fujifilm X-T30 II body','De Fujifilm X-T30 Mark II is de opvolger van de Fujifilm X-T30 Mark I, maar met de kracht van de X-T4. En dat merk je. De Mark II heeft dezelfde compacte en lichte behuizing als zijn voorganger, maar beschikt over de X-Trans CMOS 4 beeldsensor en de X-Processor 4 uit de X-T4. Dit resulteert in 26.1 megapixel foto's en video's in 4K met 30 frames per seconde.', '236542', 949, 4, 2);
+insert into products (name, description, code, price, merk_id, gebruik_id) values ('Fujifilm X-T30 II body','De Fujifilm X-T30 Mark II is de opvolger van de Fujifilm X-T30 Mark I, maar met de kracht van de X-T4. En dat merk je. De Mark II heeft dezelfde compacte en lichte behuizing als zijn voorganger, maar beschikt over de X-Trans CMOS 4 beeldsensor en de X-Processor 4 uit de X-T4. Dit resulteert in 26.1 megapixel fotos en videos in 4K met 30 frames per seconde.', '236542', 949, 4, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Leica 10301 MP 0.72 chroom','Mechanische perfectie! Niets anders. De Leica MP is een handgemaakt gereedschap dat gemaakt is voor de vakfotograaf.', '346547', 5550, 5, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Leica 10854 SL2 Body','De Leica 10854 SL2 systeemcamera is ontwikkeld door aandachtig te luisteren naar feedback van fotografen die werken met zijn voorganger. Met veel inspanning heeft Leica technologische innovatie en prestaties weten te leveren, terwijl het merk het klassieke ontwerp en erfgoed heeft weten te behouden.', '3465687', 6800, 5, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Leica 10880 SL2-S Body','De Leica 10880 SL2-S Body Black is de perfecte keuze voor fotografen die de voorker geven aan een snelle bediening boven de uitzonderlijk hoge beedresolutie van de Leica SL2. Binnen het Leica SL-systeem zijn er bijzonder hoge opnamesnelheid tot 25 beelden per seconde bij volledige resolutie. Daarnaast zijn er pro-level videomogelijkheden met 10-bits 4K video-opnamens.', '34653', 4999, 5, 2);
@@ -254,6 +247,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Pentax KF Body','De Pentax KF is een compacte, weersbestendige en stofdichte DSLR camera, ideaal voor allerlei soorten outdoorfotografie.', '3465686', 949, 10, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hasselblad X1D-50c body','De Hasselblad X1D is werelds eerste spiegelloze digitale midden formaat camera en is uitgerust met een hoogwaardige 50 Megapixel CMOS sensor.', '3465676', 4795, 11, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hasselblad X2D 100c body','De Hasselblad X2D 100c is de opvolger van de X1D in de flagship-lijn van Hasselblad met verbeteringen in de beeldkwaliteit, scherpstelling, stabilisatie, reactievermogen en opslag in een Scandinavisch ontwerp.', '98685', 8699, 11, 2);
+
+
 --lenzen
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EF 11-24mm F4L USM','De wijdste ultragroothoekzoom lens van canon geschikt voor de fullframe EOS camera met EF vatting. Super degelijke bouwkwaliteit en de beste optische prestaties zonder al te veel vervorming.', '7674', 3499, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EF 24-105mm F4.0L IS II USM','De Canon EF 24-105mm F/4.0L IS II USM is een standaard zoomobjectief met professionele prestaties in verschillende soorten fotografie en videografie.', '547864', 1319, 3, 2);
@@ -354,6 +349,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Pentax D HD FA 70-210mm F4 ED SDM WR','een ultraa goeie camera', '756456', 1079, 10, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Pentax FA 70-200mm F2.8 ED DC AW','een ultraa goeie camera', '5768554', 1999, 10, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Pentax HD FA 43mm F1.9 Limited','een ultraa goeie camera', '45785645', 699, 10, 2);
+
+
 --geheugenkaarten
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme 64GB SDXC UHS-I','een ultraa goeie camera', '7547578', 22, 13, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme 128GB MicroSDXC UHS-I','een ultraa goeie camera', '457856', 19, 13, 2);
@@ -376,6 +373,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung SD PRO Ultimate 128GB','een ultraa goeie camera', '656778', 34, 14, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung SD PRO Ultimate 256GB','een ultraa goeie camera', '478574568', 59, 14, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung SD PRO Ultimate 512GB','een ultraa goeie camera', '74434', 109, 14, 2);
+
+
 --accu's
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-511A - Canon BP-511','een ultraa goeie camera', '67829', 42, 12, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-E12 Ultra - Canon LP-E12','een ultraa goeie camera', '742819', 64, 12, 2);
@@ -385,6 +384,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-PLG10HP Ultra - Panasonic DMW-BLG10E','een ultraa goeie camera', '3232345', 39, 12, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-X1 - Sony NP-BX1','een ultraa goeie camera', '1236643', 32, 12, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-XW50 Ultra - Sony NP-FW50','een ultraa goeie camera', '12453', 43, 12, 2);
+
+
 --statieven
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Combi C3770TN','een ultraa goeie camera', '6543523', 449, 16, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Mach3 TMA37AL','een ultraa goeie camera', '7674', 161, 16, 2);
@@ -408,12 +409,16 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Easy Traveler Video XL grijs','een ultraa goeie camera', '678954', 299, 15, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Photo A2 statief','een ultraa goeie camera', '65892', 149, 15, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Photo T2 statief','een ultraa goeie camera', '578920', 99, 15, 2);
+
+
 --drones
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Air 3','een ultraa goeie camera', '75892', 1499, 17, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Avata drone','een ultraa goeie camera', '879506', 579, 17, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Inspire 3','een ultraa goeie camera', '46173', 13635, 17, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Mavic 3 Classic','een ultraa goeie camera', '214325', 1579, 17, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Mini 3','een ultraa goeie camera', '125325', 818, 17, 2);
+
+
 --360 camera's
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 GO 3','een ultraa goeie camera', '55745', 479, 18, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 ONE RS','een ultraa goeie camera', '75423', 939, 18, 2);
@@ -423,20 +428,21 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Kandao QooCam 3','een ultraa goeie camera', '3467654', 399, 19, 2);
 
 
-/*camera*/
+
+/*camera database*/
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.2', 'full-frame', '10fps', '10','2', 1);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark IV body', '33', 'full-frame', '10fps', '10','2', 2); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7R V body', '61', 'full-frame', '10fps', '10','2', 3); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark IV body', '33.0', 'full-frame', '10fps', '10','2', 2); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7R V body', '61.0', 'full-frame', '10fps', '10','2', 3); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A6100 body', '24.2', 'APS-C', '11fps', '8','1', 4); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A6400 body', '24.2', 'APS-C', '10fps', '8','1', 5); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A6600 body', '24.2', 'APS-C', '11fps', '10','1', 6); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A6700 body', '27', 'APS-C', '10fps', '10','1', 7); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A6700 body', '27.0', 'APS-C', '10fps', '10','1', 7); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony vlog camera ZV-E10 body', '24.2', 'APS-C', '8fps', '8','1', 8); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony alpha a1', '50.1', 'full-frame', '30fps', '10','2', 9); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony FX3 body', '10.2', 'CMOS', '10fps', '10','2', 10);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony FX30 body', '26', 'APS-C', '10fps', '14','2', 11);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7C2 zilver', '33', 'full-frame', '10fps', '10','1', 12); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony a7c', '33', 'full-frame', '10fps', '10','1', 13); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony FX30 body', '26.0', 'APS-C', '10fps', '14','2', 11);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7C2 zilver', '33.0', 'full-frame', '10fps', '10','1', 12); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony a7c', '33.0', 'full-frame', '10fps', '10','1', 13); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony a9III', '24.6', 'full-frame', '10fps', '10','2', 14); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony zv-e1', '24.3', 'APS-C', '10fps', '10','1', 15); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony Cybershot DSC-RX10 mark IV', '20.1', 'full-frame', '24fps', '8','1', 16); 
@@ -451,154 +457,227 @@ insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon EOS R10 body', '24.2', 'APS-C', '23fps', '14','1', 25); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon EOS 5D Mark IV body', '30.4', 'full-frame', '7fps', '8','2', 26); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon EOS 6D mark II body', '26.2', 'full-frame', '6.5fps', '8','1', 27); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon EOS 250D body zwart', '24.4', 'full-frame', '10fps', '100','2', 28); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 29);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 30);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 31);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 32);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 33);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 34);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 35);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 36);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 37);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 38);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 39);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 40);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 41);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 42);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 43);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 44); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 45); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 46);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 47);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 48); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 49); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 50); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 51); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 52); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 53); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 54); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 55);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 56); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 57); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 58); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 59); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 60); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 61); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 62); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 63); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 64);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 65);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 66); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 67); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 68); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 69); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 70); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 71); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 72); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 73); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 74); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 75); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 76); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 77);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2',78);
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 79); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 80); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 81); 
-insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.4', 'full-frame', '10fps', '100','2', 82); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon EOS 250D body zwart', '24.1', 'APS-C', '10fps', '8','1', 28); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon EOS 850D Body', '24.1', 'APS-C', '7fps', '14','1', 29);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon EOS 2000D body', '24.1', 'APS-C', '3fps', '14','1', 30);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon Powershot G1X mark III', '24.2', 'APS-C', '7fps', '14','1', 31);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon Powershot G7X mark III zwart', '20.1', 'full-frame', '10fps', '8','1', 32);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon Powershot SX70 HS', '20.3', 'full-frame', '10fps', '8','1', 33);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Canon Powershot SX740 HS zwart', '20.3', 'full-frame', '10fps', '8','1', 34);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon D780 body', '24.5', 'full-frame', '10fps', '10','2', 35);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon Z5 body', '24.3', 'full-frame', '10fps', '14','2', 36);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon Z6 II body', '24.5', 'full-frame', '14fps', '12','2', 37);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon Z8 body', '45.7', 'full-frame', '120fps', '10','2', 38);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon Z9 body', '45.7', 'full-frame', '120fps', '10','2', 39);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon Z50 body zwart', '20.9', 'APS-C', '11fps', '14','1', 40);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon Z30 body', '20.8', 'full-frame', '11fps', '14','1', 41);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon D7500 Body', '20.9', 'APS-C', '8fps', '14','1', 42);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon D6 Body', '20.8', 'full-frame', '14fps', '14','2', 43);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon Coolpix P1000', '16.0', 'full-frame', '7fps', '12','1', 44); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Nikon Coolpix P950', '16.0', 'full-frame', '30fps', '8','1', 45); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic HC-V785', '12.8', 'BSI', '28fps', '8','1', 46);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic HC-V808', '14.0', 'CMOS', '50fps', '8','1', 47);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic HC-VX1EG', '25.9', 'BSI', '60fps', '8','1', 48); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix DC-BS1HE', '24.2', 'CMOS', '60fps', '10','2', 49); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix DC-G9 body', '20.3', 'MFT', '60fps', '10','2', 50); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix DC-G9II body', '25.3', 'MFT', '75fps', '10','2', 51); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic LUMIX DC-G90 body', '20.3', 'MFT', '9fps', '8','1', 52); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix DC-GH6 body', '25.3', 'MFT', '10fps', '10','2', 53); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix DC-S5 body', '24.2', 'full-frame', '10fps', '10','2', 54); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix DC-S5 IIX body', '24.0', 'full-frame', '30fps', '10','2', 55);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix DC-TZ200D', '20.1', 'CMOS', '10fps', '8','1', 56); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix DMC-FZ2000', '20.1', 'full-frame', '12fps', '8','1', 57); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic LUMIX DMC-G80 body', '16.0', 'MFT', '30fps', '8','1', 58); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix FZ-330', '12.1', 'CMOS', '12fps', '12','1', 59); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix G70 body', '16.0', 'MFT', '8fps', '8','1', 60); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Panasonic Lumix G91', '20.3', 'MFT', '9fps', '8','1', 61); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Fujifilm GFX 50S II body', '51.4', 'full-frame', '3fps', '14','2', 62); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Fujifilm GFX 100 II', '102.0', 'full-frame', '8fps', '10','2', 63); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Fujifilm X-H2 body', '40.2', 'APS-C', '15fps', '10','2', 64);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Fujifilm X-S10 body', '26.0', 'APS-C', '20fps', '8','1', 65);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Fujifilm X-S20 body', '26.1', 'APS-C', '30fps', '10','1', 66); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Fujifilm X-T5 body', '40,2', 'APS-C', '15fps', '10','2', 67); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Fujifilm X-T30 II body', '26.1', 'APS-C', '30fps', '10','2', 68); 
+insert into camera (name, product_id) values ('Leica 10301 MP 0.72 chroom', 69); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Leica 10854 SL2 Body', '47.0', 'full-frame', '20fps', '10','2', 70); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Leica 10880 SL2-S Body', '24.0', 'full-frame', '25fps', '10','2', 71); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Leica 19054 Q2 Ghost', '47.3', 'full-frame', '10fps', '14','1', 72); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Leica 19120 V-LUX 5', '20.1', 'full-frame', '30fps', '8','1', 73); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Leica 20211 M11-P body', '60.0', 'full-frame', '4.5fps', '14','1', 74); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Olympus E-P7 Body', '20.3', 'MFT', '8.7fps', '12','1', 75); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Olympus OM-D E-M10 mark IV Body', '20.0', 'MFT', '15fps', '12','1', 76); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('OM SYSTEM OM-1 body', '20.4', 'MFT', '120fps', '14','2', 77);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('OM SYSTEM OM-5 body', '20.4', 'MFT', '30fps', '8','1',78);
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Pentax 645Z Body', '51.4', 'full-frame', '3fps', '14','2', 79); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Pentax K-1 Mark II body', '36.4', 'full-frame', '6.4fps', '14','2', 80); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Pentax K-3 Mark III body', '25.7', 'full-frame', '12fps', '14','1', 81); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Pentax KF Body', '24.0', 'full-frame', '6fps', '14','2', 82); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Hasselblad X1D-50c body', '50.0', 'CMOS', '2.7fps', '16','1', 83); 
+insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Hasselblad X2D 100c body', '100.0', 'full-frame', '3.3fps', '16','1', 84); 
 
-/*lenzen*/
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
-insert into lenzen (naam, lenstype,  merk_id, product_id) values ('Canon EF 11-24mm F4L USM', 1, 3, 1);
+/*lenzen database*/
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 85);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 86);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+insert into lenzen (naam, lenstype, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1);
+
+/*statief database*/
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 213);
+
+/*drone database*/
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
+insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 235);
+
+/*driezestigcamera database*/
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
+insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', '35,5 g', 1, 241);
+
+/*accu database*/
+insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
+insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
+insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
+insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
+insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
+insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
+insert into accu (naam, product_id) values ('Hähnel HL-511A - Canon BP-511', 204);
+
+/*memorycard database*/
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
+
+
+-- Connecties
 
 /*camera_lenzen*/
 insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
@@ -612,75 +691,6 @@ insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
 insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
 insert into camera_lenzen (camera_id, lenzen_id) values (1, 1);
 
-/*statief*/
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen,  merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg',  16, 213);
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen,  merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg',  16, 213);
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen,  merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg',  16, 213);
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen,  merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg',  16, 213);
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen,  merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg', 16, 213);
-insert into statief (naam, materiaal, draagvermogen, merk_id, product_id) values ('Benro Combi C3770TN', 'carbon', '18kg',  16, 213);
-
-/*drone*/
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 17, 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 17, 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 17, 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 17, 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 17, 235);
-insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, merk_id, product_id) values ('DJI Air 3', '0,72 kg', 1, '5200 mAh', 17, 235);
-
-/*driezestigcamera*/
-insert into driezestigcamera (naam, gewicht, bluetooth, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 18, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 18, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 18, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 18, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 18, 241);
-insert into driezestigcamera (naam, gewicht, bluetooth, merk_id, product_id) values ('Insta360 GO 3', '35,5 g', 1, 18, 241);
-
-/*accu*/
-insert into accu (naam, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 12, 204);
-insert into accu (naam, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 12, 204);
-insert into accu (naam, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 12, 204);
-insert into accu (naam, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 12, 204);
-insert into accu (naam, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 12, 204);
-insert into accu (naam, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 12, 204);
-insert into accu (naam, merk_id, product_id) values ('Hähnel HL-511A - Canon BP-511', 12, 204);
-
-/*memorycard*/
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, merk_id, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 13, 184);
-
-
 /*camera_memorycard*/
 insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
 insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
@@ -691,6 +701,8 @@ insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
 insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
 insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
 
+
+-- Overig
 
 /*gebruik*/
 insert into gebruik (soort) values ('mirrorless');

@@ -82,6 +82,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Pentax KF Body','een ultraa goeie camera', '3465686', 949, 10, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hasselblad X1D-50c body','een ultraa goeie camera', '3465676', 4795, 11, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hasselblad X2D 100c body','een ultraa goeie camera', '98685', 8699, 11, 2);
+
+
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EF 11-24mm F4L USM','een ultraa goeie camera', '7674', 3499, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EF 24-105mm F4.0L IS II USM','een ultraa goeie camera', '547864', 1319, 3, 2);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EF 50mm F1.8 STM','een ultraa goeie camera', '457546', 114, 3, 2);
