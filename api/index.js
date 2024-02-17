@@ -74,8 +74,8 @@ function getProducts(request, response) {
 
   // Loop door de resultaten en voeg accu-informatie toe voor accuproducten
   data.forEach(product => {
-    if (product.category === 'accu') {
-      const accuInfo = db.prepare('SELECT aantal_volt AS aantalvolt, capaciteit FROM accu WHERE product_id = ?').get(product.id)
+    if (product.id >= 205 && product.id <= 212) {
+      const accuInfo = db.prepare('SELECT products.name AS name, products.description AS description, products.price AS price, accu.aantal_volt AS aantalvolt, accu.capaciteit AS capaciteit FROM accu JOIN products ON accu.product_id = products.id').get(product.id)
       product.aantal_volt = accuInfo.aantalvolt
       product.capaciteit = accuInfo.capaciteit
     }
