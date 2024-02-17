@@ -67,8 +67,20 @@ function getCategories(request, response) {
 function getProducts(request, response) {
   console.log('API ontvangt /api/products/', request.query)
   let data = []
-  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price FROM products ORDER BY products.name ASC')
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price FROM products ORDER BY products.id ASC')
   data = sqlOpdracht.all()
+
+  // Loop door de resultaten en voeg accu-informatie toe voor accuproducten
+  data.forEach(product => {
+    if (product.category === 'accu') {
+      const accuInfo = db.prepare('SELECT aantal_volt AS aantalvolt, capaciteit FROM accu WHERE product_id = ?').get(product.id)
+      product.aantal_volt = accuInfo.aantalvolt
+      product.capaciteit = accuInfo.capaciteit
+    }
+  })
+
   // console.log(JSON.stringify(data, null, 2))
   response.status(200).send(data)
   console.log('API verstuurt /api/products/')
@@ -78,7 +90,7 @@ function getProductById(request, response) {
   console.log('API ontvangt /api/products/:id', request.query)
   let data = []
   const product_id = parseInt(request.params.id)
-  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price FROM products WHERE products.merk_id = 1 ORDER BY products.name ASC')
+  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price FROM products WHERE id = ?')
   data = sqlOpdracht.all(product_id)
   response.status(200).json(data[0])
 }

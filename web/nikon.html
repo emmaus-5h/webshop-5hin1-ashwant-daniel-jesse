@@ -24,41 +24,41 @@
   </div>
 
   <!-- menubalk -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="nav-link homepaginaText" href="index.html">Homepagina <span class="sr-only">(current)</span></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="nav-link homepaginaText" href="index.html">Homepagina <span class="sr-only">(current)</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="navlink dropdown-toggle" href="#" id="navbarDropdownmerk" role="botton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Merken
-        </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMerk">
-                <a class="dropdown-item" href="sony.html" onclick="filterProduct ('merk', 'Sony')">Sony </a>
-                <a class="dropdown-item" href="canon.html" onclick="filterProduct ('merk', 'Canon')">Canon </a>
-                <a class="dropdown-item" href="nikon.html" onclick="filterProduct ('merk', 'Nikon')">Nikon </a>
-                <a class="dropdown-item" href="sigma.html" onclick="filterProduct ('merk', 'Sigma')">Sigma </a>
-                <a class="dropdown-item" href="panasonic.html" onclick="filterProduct ('merk', 'Panasonic')">Panasonic </a>
-                <a class="dropdown-item" href="fujifilm.html" onclick="filterProduct ('merk', 'Fujiflm')">Fujifilm </a>
-            </li>
-              </div>
-          </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="navlink dropdown-toggle" href="#" id="navbarDropdownmerk" role="botton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Merken
+          </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMerk">
+                  <a class="dropdown-item" href="sony.html" onclick="filterProduct ('merk', 'Sony')">Sony </a>
+                  <a class="dropdown-item" href="canon.html" onclick="filterProduct ('merk', 'Canon')">Canon </a>
+                  <a class="dropdown-item" href="nikon.html" onclick="filterProduct ('merk', 'Nikon')">Nikon </a>
+                  <a class="dropdown-item" href="sigma.html" onclick="filterProduct ('merk', 'Sigma')">Sigma </a>
+                  <a class="dropdown-item" href="panasonic.html" onclick="filterProduct ('merk', 'Panasonic')">Panasonic </a>
+                  <a class="dropdown-item" href="fujifilm.html" onclick="filterProduct ('merk', 'Fujiflm')">Fujifilm </a>
+              </li>
+                </div>
+            </ul>
 
-    <a href="basket.html"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Winkelwagen <span class="num_products"></span></button></a>
+      <a href="basket.html"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Winkelwagen <span class="num_products"></span></button></a>
 
-        </nav>
+          </nav>
 
-  <!-- lijst met producten, wordt gevuld door javascript -->
-  <main id="index">
-    <div class="container">
-      <h3>Sony producten</h3>
-      <p>Hier zie je een lijst met alle 'Sony' producten die je op deze webshop kunt bestellen.</p>
-      <p>Klik op een product voor meer informatie.<p>
-      <p>Klik op de "winkelwagentje" om het artikel in je winkelwagen te stoppen.</p>
-    </div>	
+    <!-- lijst met producten, wordt gevuld door javascript -->
+    <main id="index">
+      <div class="container">
+        <h3>Nikon producten</h3>
+        <p>Hier zie je een lijst met alle 'Nikon' producten die je op deze webshop kunt bestellen.</p>
+        <p>Klik op een product voor meer informatie.<p>
+        <p>Klik op de "winkelwagentje" om het artikel in je winkelwagen te stoppen.</p>
+      </div>	
     <!-- template for product info-->
     <template id="productcard">
     <div class="col-sm">
@@ -123,28 +123,28 @@
             var data = JSON.parse(this.response) // vertaal response van API naar array met producten
             for (let row in data) { // herhaal voor elke product
               const product = data[row]
-              var nameSony = product.name
-              var name = product.name.substr(0, 35)
-              if(name.length < product.name.length) {
-                name = name + '...'
+              var nameNikon = product.name
+                  var name = product.name.substr(0, 35)
+                  if(name.length < product.name.length) {
+                    name = name + '...'
+                  }
+                  // voeg product toe aan DOM, 
+                  // zodat deze zichtbaar wordt op de webpagina
+                  const clone = template.content.cloneNode(true);
+
+                  if (nameNikon.includes("Nikon")) {
+                  clone.querySelector(".product_title").textContent = product.name;
+                  clone.querySelector(".product_description").textContent =`${product.description.substr(0, 100)}...`
+                  clone.querySelector(".product_price").textContent = `€ ${product.price},-`
+                  clone.querySelector(".product_code").textContent = product.code
+                  clone.querySelector(".product_id").value = product.id
+                  clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
+                  clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
+                  container.appendChild(clone)
+                  }
+
+                }
               }
-              // voeg product toe aan DOM, 
-              // zodat deze zichtbaar wordt op de webpagina
-              const clone = template.content.cloneNode(true);
-              
-              if (nameSony.includes("Sony")) {
-              clone.querySelector(".product_title").textContent = product.name;
-              clone.querySelector(".product_description").textContent =`${product.description.substr(0, 100)}...`
-              clone.querySelector(".product_price").textContent = `€ ${product.price},-`
-              clone.querySelector(".product_code").textContent = product.code
-              clone.querySelector(".product_id").value = product.id
-              clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
-              clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
-              container.appendChild(clone)
-              }
-        
-            }
-          }
   </script>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

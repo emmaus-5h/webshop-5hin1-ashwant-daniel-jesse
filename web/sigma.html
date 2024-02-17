@@ -2,26 +2,26 @@
 <html lang="nl">
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	 crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+   crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <!-- toast is een melding die tijdelijk rechtsboven op het scherm verschijnt -->
   <!-- meer info op: https://www.w3schools.com/bootstrap4/bootstrap_ref_js_toasts.asp -->
-	<div class="toast" data-delay="2000">
-		<div class="toast-header">
-			<strong class="mr-auto">Product toegevoegd</strong>
-			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+  <div class="toast" data-delay="2000">
+    <div class="toast-header">
+      <strong class="mr-auto">Product toegevoegd</strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-		</div>
-		<div class="toast-body">
-			Ga naar je <a href="/basket.html">Winkelwagen</a> om af te rekenen
-		</div>
-	</div>
+    </div>
+    <div class="toast-body">
+      Ga naar je <a href="/basket.html">Winkelwagen</a> om af te rekenen
+    </div>
+  </div>
 
   <!-- menubalk -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -52,42 +52,42 @@
         </nav>
 
   <!-- lijst met producten, wordt gevuld door javascript -->
-	<main id="index">
-		<div class="container">
-			<h3>Alle producten</h3>
- 			<p>Hier zie je een lijst met alle producten die je op deze webshop kan bestellen.</p>
-			<p>Klik op een product voor meer informatie.<p>
-			<p>Klik op de "winkelwagentje" om het artikel in je winkelwagen te stoppen.</p>
-		</div>	
+  <main id="index">
+    <div class="container">
+      <h3>Sigma producten</h3>
+      <p>Hier zie je een lijst met alle 'Sigma' producten die je op deze webshop kunt bestellen.</p>
+      <p>Klik op een product voor meer informatie.<p>
+      <p>Klik op de "winkelwagentje" om het artikel in je winkelwagen te stoppen.</p>
+    </div>	
     <!-- template for product info-->
     <template id="productcard">
-      <div class="col-sm">
-        <div class="card" onclick="openArticlePage(this)">
-          <h5 class="card-header product_title"></h5>
-          <img width="200" class="product_image card-img-top">
-          <div class="card-body">
-            <p class="product_description card-text"></p>
-            <ul class="product-properties">
-              <li><span class="propert-name">Prijs: </span><span class="product_price"></span></li>
-              <li><span class="propert-name">Code: </span><span class="product_code"></span></li>
-            </ul>
-            <input class="product_amount" type="number" value="1" min="1">
-            <input class="product_id" type="hidden" name="id" data-json="">
-            <button class="btn btn-outline-dark shop-button" onclick="event.stopPropagation();addAmountClosestToBasket(this);$('.toast').toast('show')">🛒</button>
-          </div>
+    <div class="col-sm">
+      <div class="card" onclick="openArticlePage(this)">
+        <h5 class="card-header product_title"></h5>
+        <img width="200" class="product_image card-img-top">
+        <div class="card-body">
+          <p class="product_description card-text"></p>
+          <ul class="product-properties">
+            <li><span class="propert-name">Prijs: </span><span class="product_price"></span></li>
+            <li><span class="propert-name">Code: </span><span class="product_code"></span></li>
+          </ul>
+          <input class="product_amount" type="number" value="1" min="1">
+          <input class="product_id" type="hidden" name="id" data-json="">
+          <button class="btn btn-outline-dark shop-button" onclick="event.stopPropagation();addAmountClosestToBasket(this);$('.toast').toast('show')">🛒</button>
         </div>
       </div>
-      </template>
-	</main>
+    </div>
+    </template>
+  </main>
 
   <!-- voettekst -->
-	<footer>
-		<hr>
+  <footer>
+    <hr>
       <p>Het maken van deze website is een opdracht voor het vak informatica op het Emmauscollege Rotterdam.</p>
-	</footer>
+  </footer>
 
-	<script src="/js/basket.js"></script> <!-- functies voor de winkelwagen -->
-	
+  <script src="/js/basket.js"></script> <!-- functies voor de winkelwagen -->
+
   <script> // functies om de producten te laden en tonen op de webpagina
 
     // deze functie wordt aangeroepen als de pagina geladen is
@@ -123,6 +123,7 @@
             var data = JSON.parse(this.response) // vertaal response van API naar array met producten
             for (let row in data) { // herhaal voor elke product
               const product = data[row]
+              var nameSigma = product.name
               var name = product.name.substr(0, 35)
               if(name.length < product.name.length) {
                 name = name + '...'
@@ -130,7 +131,9 @@
               // voeg product toe aan DOM, 
               // zodat deze zichtbaar wordt op de webpagina
               const clone = template.content.cloneNode(true);
-              clone.querySelector(".product_title").textContent = name 
+
+              if (nameSigma.includes("Sigma")) {
+              clone.querySelector(".product_title").textContent = product.name;
               clone.querySelector(".product_description").textContent =`${product.description.substr(0, 100)}...`
               clone.querySelector(".product_price").textContent = `€ ${product.price},-`
               clone.querySelector(".product_code").textContent = product.code
@@ -138,19 +141,21 @@
               clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
               clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
               container.appendChild(clone)
+              }
+
             }
           }
   </script>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-	</script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-	</script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>

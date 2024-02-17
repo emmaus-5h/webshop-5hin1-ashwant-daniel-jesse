@@ -1,15 +1,4 @@
---
--- create tables
-
-CREATE TABLE merk (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name VARCHAR(255),
-  beschrijving TEXT
-);
-
-
--- product gerelateerde tabellen
-
+-- Alle producten van de webshop
 CREATE TABLE products (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255),
@@ -21,118 +10,86 @@ CREATE TABLE products (
 );
 
 
+--------------------------------------------------------------
+-- Extra informatie voor bepaalde groep
+-- Product_id wordt gebruikt voor de n:m relaties
+
 CREATE TABLE camera (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR(255),
-  megapixels VARCHAR(255),
-  sensor VARCHAR(255),
-  fps VARCHAR(255),
-  bitrate VARCHAR(255),
-  geheugenkaartslots VARCHAR(255),
-  schermgrootte VARCHAR(255),
-  product_id INTEGER
+  megapixels VARCHAR(255),           -- Hoeveel megapixels een camera heeft
+  sensor VARCHAR(255),               -- Wat voor type sensor een camera heeft
+  fps VARCHAR(255),                  -- Hoeveel foto's per seconde de camera kan maken
+  bitrate VARCHAR(255),              -- Hoeveel bits er in een foto zitten
+  geheugenkaartslots VARCHAR(255),   -- Hoeveel geheugenkaartslots een camera heeft
+  product_id INTEGER                 
 );
 
 CREATE TABLE lenzen (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  lenstype BIT, --prime = 0 (niet kunnen zoomen), zoom = 1 (kan wel inzoomen)
-  gewicht VARCHAR(255), -- gewicht van lens in kilogram
+  lenstype BIT,                     -- Prime = 0 (niet kunnen zoomen), zoom = 1 (kan wel inzoomen)
+  gewicht VARCHAR(255),             -- Gewicht van de lens in kilogram
   product_id INTEGER
 );
 
 CREATE TABLE accu (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  aantal_volt VARCHAR(255),
-  capaciteit VARCHAR(255), -- capaciteit in mAh
+  aantal_volt VARCHAR(255),         -- Aantal volt van accu
+  capaciteit VARCHAR(255),          -- Capaciteit van accu in mAh
   product_id INTEGER
 );
 
 CREATE TABLE memorycard (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  capacityGB VARCHAR(255),
-  videospeed VARCHAR(255),
-  readingspeed VARCHAR(255),
-  writingspeed VARCHAR(255),
+  capacityGB VARCHAR(255),          -- Wat is de opslagcapaciteit van de geheugenkaart
+  videospeed VARCHAR(255),          -- De video speed van de geheugenkaart
+  readingspeed VARCHAR(255),        -- De maximale leessnelheid van de geheugenkaart in MB/S
+  writingspeed VARCHAR(255),        -- De maximale schrijfsnelheid van de geheugenkaart in MB/s
   product_id INTEGER
 );
 
 CREATE TABLE statief (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  materiaal VARCHAR(255),
-  draagvermogen VARCHAR(255),
+  materiaal VARCHAR(255),           -- Materiaal waarmee statief is gemaakt
+  draagvermogen VARCHAR(255),       -- Hoeveel kg de statief kan dragen
   product_id INTEGER
 );
 
 CREATE TABLE drone (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  gewicht VARCHAR(255),
-  v4Kvideo BIT,                   -- 0 = geen 4k camera, 1 = wel 4k camera
-  batterijgrootte VARCHAR(255),   -- in mAh
-  bereik_controller VARCHAR(255), -- in km
-  maximale_snelheid VARCHAR(255), -- in km/h
+  gewicht VARCHAR(255),             -- Gewicht van de drone in kg
+  v4Kvideo BIT,                     -- 0 = geen 4k camera op de drone, 1 = wel 4k camera
+  batterijgrootte VARCHAR(255),     -- De batterijgrootte van de drone in mAh
+  bereik_controller VARCHAR(255),   -- Maximale bereik in km
+  maximale_snelheid VARCHAR(255),   -- Maximale snelheid van de drone in km/h
   product_id INTEGER
 );
 
 CREATE TABLE driezestigcamera (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   naam VARCHAR(255),
-  gewicht VARCHAR(255),
-  bluetooth BIT,
+  gewicht VARCHAR(255),             -- Gewicht van de 360 camera in kg
+  bluetooth BIT,                    -- 0 = geen bluetooth in de 360 camera, 1 = wel bluetooth
   product_id INTEGER
 );
 
-CREATE TABLE camera_lenzen (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  camera_id INTEGER,
-  lenzen_id INTEGER
-);
+---------------------------------------------------------------
 
-CREATE TABLE camera_accu (
+/* 
+Alle merken van de prodcuten
+*/
+CREATE TABLE merk (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  camera_id INTEGER,
-  accu_id INTEGER
-);
-
--------------------------------------------------------------------------------------------------
-
-CREATE TABLE gebruik(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  soort VARCHAR(255)
-);
-
-CREATE TABLE tags (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  tagname VARCHAR(255)
-);
-
-CREATE TABLE product_tags (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  product_id INTEGER,
-  tag_id INTEGER
+  name VARCHAR(255)
 );
 
 
-
---https://levelup.gitconnected.com/master-the-power-of-sql-fact-tables-vs-dimension-tables-explained-81446c39dfe4
---
--- populate with data
---
--- generared using
--- curl "https://api.mockaroo.com/api/910b6c20?count=100&key=90eac760" > seed.sql
---
--- want different data? check: https://www.mockaroo.com/910b6c20
---  
-
-
-
-/* Merk */
-
---nummertjes om niet elke keer te tellen voor merk_id ;)
+-- Nummertjes erachter om niet elke keer te tellen voor merk_id ;)
 
 -- Camera/lens
 insert into merk (name) values ('Sony');--1
@@ -147,7 +104,7 @@ insert into merk (name) values ('OM System');--9
 insert into merk (name) values ('Pentax');--10
 insert into merk (name) values ('Hasselblad');--11
 
---geheugenkaart/accu
+-- Geheugenkaart/Accu
 insert into merk (name) values ('Hahnel');--12
 insert into merk (name) values ('sanDisk');--13
 insert into merk (name) values ('samsung');--14
@@ -163,9 +120,75 @@ insert into merk (name) values ('DJI');--17
 insert into merk (name) values ('Insta 360');--18
 insert into merk (name) values ('Kandao');--19  
 
+------------------------------------------------------------------
 
-/*products*/ 
---cameras
+/*
+Worden n:m relaties mee gemaakt
+*/
+CREATE TABLE camera_lenzen (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  camera_id INTEGER,
+  lenzen_id INTEGER
+);
+
+CREATE TABLE camera_accu (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  camera_id INTEGER,
+  accu_id INTEGER
+);
+
+-------------------------------------------------------------------------------------------------
+
+/*
+Soort camera 
+Wat voor soort camera is het
+*/
+CREATE TABLE gebruik(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  soort VARCHAR(255)
+);
+
+insert into gebruik (soort) values ('mirrorless');    -- Systeem camera 
+insert into gebruik (soort) values ('dslr');          -- Spiegelreflex camera 
+insert into gebruik (soort) values ('compact');       -- Compacte camera
+insert into gebruik (soort) values ('accessoire');    -- Lens, drone, 360 camera, accu en statief
+insert into gebruik (soort) values ('video');         -- Video camera
+insert into gebruik (soort) values ('middenformaat'); -- Middenformaat camera
+
+------------------------------------------------------------------------------------------------------
+
+
+/*
+Tags voor producten (nieuw, best-seller etc.)
+*/
+CREATE TABLE tags (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  tagname VARCHAR(255)
+);
+
+insert into tags(tagname) values ('3x free sensor cleaning');
+insert into tags(tagname) values ('new');
+insert into tags(tagname) values ('bestseller');
+insert into tags(tagname) values ('5 jaar garantie');
+
+-- Geeft tags aan producten (N:m relatie)
+CREATE TABLE product_tags (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  product_id INTEGER,
+  tag_id INTEGER
+);
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+/*
+Products
+Alle producten die worden laten zien op de webshop
+*/ 
+
+-- Camera's
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7 mark III body','De Sony A7 mark III body is een full frame systeemcamera die perfect is voor professionele foto- en videografen. Met deze camera profiteer je van nog meer snelheid en een nog hogere beeldkwaliteit dan bij de voorgangers uit de A7-serie.', '1654783', 1849, 1, 1);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7 mark IV body','De Sony A7 IV is een full frame systeemcamera die ideaal is voor fotografie en videografie. De camera beschikt over een uitmuntende beeldkwaliteit dankzij de 33 megapixel Exmor R-sensor. Voor video-opnamen kun je rekenen op een 4K kwaliteit in 60p.', '748932', 2699, 1, 1);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Sony A7R V body','De Sony A7R V met 61 megapixel biedt een waanzinnige autofocus op basis van AI en heeft een razendsnelle verwerking dankzij de nieuwste BIONZ XR. Je maakt videobeelden in 8K en hebt geen last meer van trillingen dankzij de verbeterde 8-stops beeldstabilisatie.', '75829', 4499, 1, 1);
@@ -252,7 +275,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hasselblad X2D 100c body','De Hasselblad X2D 100c is de opvolger van de X1D in de flagship-lijn van Hasselblad met verbeteringen in de beeldkwaliteit, scherpstelling, stabilisatie, reactievermogen en opslag in een Scandinavisch ontwerp.', '98685', 8699, 11, 6);
 
 
---lenzen
+
+-- Lenzen
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EF 11-24mm F4L USM','De wijdste ultragroothoekzoom lens van canon geschikt voor de fullframe EOS camera met EF vatting. Super degelijke bouwkwaliteit en de beste optische prestaties zonder al te veel vervorming.', '7674', 3499, 3, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EF 24-105mm F4.0L IS II USM','De Canon EF 24-105mm F/4.0L IS II USM is een standaard zoomobjectief met professionele prestaties in verschillende soorten fotografie en videografie.', '547864', 1319, 3, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Canon EF 50mm F1.8 STM','De Canon EF 50mm F/1.8 STM is een prime objectief in een klassiek ontwerp met verbeteringen aan het AF-systeem en het fysieke ontwerp.', '457546', 114, 3, 4);
@@ -354,7 +378,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Pentax HD FA 43mm F1.9 Limited','De Pentax HD FA 43mm F/1.9 Limited is een prime lens van standaard lengte die geschikt is voor alledaagse fotografie. Door het maximale diafragma van f/1.9 presteert het objectief erg goed met weinig licht en krijg je ook meer controle over de scherptediepte, waardoor je je onderwerp nog beter kunt isoleren.', '45785645', 699, 10, 4);
 
 
---memorycard
+
+-- Geheugenkaarten
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme 64GB SDXC UHS-I','Deze SanDisk Extreme Pro SDXC is een geheugenkaart met een capaciteit van 64GB en is ideaal voor professionals die op zoek zijn naar razendsnelle geheugenkaarten voor hun compacte tot middelgrote point-and-shoot-cameras. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '7547578', 22, 13, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme 128GB MicroSDXC UHS-I','De SanDisk Extreme 128GB microSDXC UHS-I geheugenkaart geeft je de vrijheid om meer dan ooit tevoren te fotograferen, op te slaan en te delen.', '457856', 19, 13, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('SanDisk Extreme Pro 1TB microSDXC 200MBs UHS-I','De SanDisk Extreme Pro 1TB microSDXC UHS-I geheugenkaart geeft je de vrijheid om meer dan ooit tevoren te fotograferen, op te slaan en te delen. Met een Extreme Pro geheugenkaart ben je verzekerd dat al je opnames worden vastgelegd, ook burst-opnames.', '4584558', 199, 13, 4);
@@ -378,7 +403,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Samsung SD PRO Ultimate 512GB','Optimaliseer je creatieve workflow met razendsnelle prestaties. De Samsung SD PRO Ultimate 512GB biedt uitzonderlijke stabiliteit, krachtige efficiëntie en betrouwbaarheid.', '74434', 109, 14, 4);
 
 
---accu's
+
+-- Accu's
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-511A - Canon BP-511','De Hahnel HL-551A is een 7,4-Volt camera-accu. De accu heeft een capaciteit van 1500 mAh en hij vervangt de originele Canon BP-511 accu.', '67829', 42, 12, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-E12 Ultra - Canon LP-E12','De Hähnel HL-E12 Ultra is een reserve of vervangende accu voor de Canon LP-E12. Deze accu kan worden gebruikt voor de Canon EOS 100D DSLR en het EOS M compacte camerasysteem. De accu heeft een capaciteit van 850mAh en een vermogen van 7,2V. Tenslotte is deze Ultra accu betrouwbaar, innovatief en heeft deze een hoge kwaliteit.', '742819', 64, 12, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-EL3e Ultra - Nikon EN-EL3e','De Hähnel HL-EL3e Ultra is een reserve of vervangende accu voor de Nikon EN-EL3(E). Deze accu kan worden gebruikt voor Nikon DSLR. De accu heeft een capaciteit van 2000mAh en een vermogen van 7,4V. Tenslotte is deze Ultra accu betrouwbaar, innovatief en heeft deze een hoge kwaliteit.', '463289', 46, 12, 4);
@@ -389,7 +415,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Hähnel HL-XW50 Ultra - Sony NP-FW50','De Hähnel HL-XW50 Ultra is een reserve of vervangende accu voor de Sony NP-FW50. Deze accu kan worden gebruikt voor de Sony systeemcameras uit de NEX-serie en DSLRs uit de Alpha-serie. De accu heeft een capaciteit van 1000mAh en een vermogen van 7,2V.', '12453', 43, 12, 4);
 
 
---statieven
+
+-- Statieven
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Combi C3770TN','De Benro C3770TN Combi Statief is een carbon fiber statief ontworpen voor fotografen die met zware apparatuur werken. Het statief heeft namelijk een draagvermogen van 18 kg. Dankzij de juiste stabiliteit is het geen enkel probleem om een professionele spiegelreflexcamera met een lang zoomobjectief op het statief te gebruiken.', '6543523', 449, 16, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Mach3 TMA37AL','Het Benro Mach3 Statief (TMA37AL) is een stevig statief met een draagvermogen van 16 kilogram. Het statief is geschikt voor fotografen die zowel binnen als buiten fotograferen. Zo kun je met gemak een systeemcamera, spiegelreflexcamera of videocamera op het statief monteren. De werkhoogte van dit statief varieert van 41 tot 179 centimeter dankzij de meegeleverde korte middenkolom. ', '7674', 161, 16, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Benro Mach3 TMA47AL','Het Benro Mach3 Statief (TMA47AL) is een stevig statief met een draagvermogen van 20 kilogram. Het statief is geschikt voor fotografen die zowel binnen als buiten fotograferen. Je kunt met gemak een systeemcamera, spiegelreflexcamera of videocamera op het statief monteren. De werkhoogte van dit statief varieert van 41 tot 180 centimeter dankzij de meegeleverde korte middenkolom', '784932', 229, 16, 4);
@@ -414,7 +441,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Rollei Photo T2 statief','De Rollei Photo Tripod T2 Aluminium Black is een veelzijdig en lichtgewicht reisstatief. Het statief is de perfecte toevoeging aan het assortiment van de fotograaf die vaak onderweg is, vanwege de compacte afmetingen en functionaliteiten.', '578920', 99, 15, 4);
 
 
---drones
+
+-- Drones
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Air 3','Ga de lucht in met de DJI Air 3 drone en til jouw luchtopnames naar een hoger niveau met de twee krachtige cameras, Wide-Angle en Medium Telephoto met 3x zoom. 
 De Wide-Angle camera en de Medium Tele camera beschikken beide over een 1/1.3- inch-CMOS sensor maar verschillen in diafragma. Zo heeft de Wide-Angle een diafragma van f/1.7 en de Medium Tele een diafragma van f/2.8. Voor het maken van foto’s vind je bij beide 48 megapixels.', '75892', 1499, 17, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('DJI Avata drone','De drone heeft niet alleen een indrukwekkend gestroomlijnd aerodynamisch ontwerp, maar beschikt ook over krachtige voortstuwing, lange batterijduur en goede wind weerstand. Zo snijd jij op hoge snelheid door de wolken en behoud je de complete controle over jouw drone. Beleef jouw vlucht met de DJI Goggles 2 en het brede gezichtsveld van 155°. Met de DJI Motion Controller bedien je jouw drone met natuurlijke handbewegingen.', '879506', 579, 17, 4);
@@ -424,7 +452,8 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 De Mini 3 en Mini 3 Pro beschikken over een nieuwe look ten opzichte van de Mini 2, ten goede van de prestaties. De Mini 3 is uitgerust met relatief grote propellers, een aerodynamische body-helling en een krachtig ‘downward sensing-systeem’. Dit gestroomlijnde ontwerp zorgt ervoor dat je geniet van een veiligere vlucht en een lange vluchttijd van maar liefst 38 minuten.', '125325', 818, 17, 4);
 
 
---360 camera's
+
+-- 360 camera's
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 GO 3','De Insta360 GO 3 is een kleine, krachtige action camera. Superieure stabilisatie, oneindige bevestigingsmogelijkheden en de handige Actionpod maken de GO 3 de perfecte metgezel voor al je avonturen! De opvolger van de populaire GO 2 bouwt voort op de ultieme draagbaarheid van zijn voorganger en is piepklein met een ongeëvenaarde veelzijdigheid.', '55745', 479, 18, 4);
 insert into products (name, description, code, price, merk_id, gebruik_id) values ('Insta360 ONE RS','De Insta360 ONE RS 1-Inch 360° Edition is ideaal voor zowel de actioncam, als 360° camera enthousiastelingen.
 
@@ -440,7 +469,13 @@ insert into products (name, description, code, price, merk_id, gebruik_id) value
 
 
 
-/*camera database*/
+
+
+/* 
+Extra informatie voor bepaalde producten
+*/
+
+-- Camera's
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark III body', '24.2', 'full-frame', '10fps', '10','2', 1);
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7 mark IV body', '33.0', 'full-frame', '10fps', '10','2', 2); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Sony A7R V body', '61.0', 'full-frame', '10fps', '10','2', 3); 
@@ -526,7 +561,9 @@ insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Hasselblad X1D-50c body', '50.0', 'CMOS', '2.7fps', '16','1', 83); 
 insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, product_id) values ('Hasselblad X2D 100c body', '100.0', 'full-frame', '3.3fps', '16','1', 84); 
 
-/*lenzen database*/
+
+
+-- Lenzen
 insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1.180, 85);
 insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon EF 24-105mm F4.0L IS II USM', 1, 0.795, 86);
 insert into lenzen (naam, lenstype, gewicht, product_id) values ('Canon EF 50mm F1.8 STM', 0, 0.159, 87);
@@ -627,7 +664,9 @@ insert into lenzen (naam, lenstype, gewicht, product_id) values ('Pentax D HD FA
 insert into lenzen (naam, lenstype, gewicht, product_id) values ('Pentax FA 70-200mm F2.8 ED DC AW', 1, 1.755, 182);
 insert into lenzen (naam, lenstype, gewicht, product_id) values ('Pentax HD FA 43mm F1.9 Limited', 1, 0.155, 183);
 
-/*memorycard database*/
+
+
+-- Geheugenkaarten
 insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 64GB SDXC UHS-I', '64GB', 'v30', '200MB/s', '90MB/s', 184);
 insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme 128GB MicroSDXC UHS-I', '128GB', 'v30', '190MB/s', '90MB/s', 185);
 insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('SanDisk Extreme Pro 1TB microSDXC 200MBs UHS-I', '1TB', 'v30', '200MB/s', '14MB/s', 186);
@@ -650,7 +689,9 @@ insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed
 insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung SD PRO Ultimate 256GB', '256GB', 'v30', '200MB/s', '130MB/s', 203);
 insert into memorycard (naam, capacityGB, videospeed, readingspeed, writingspeed, product_id) values ('Samsung SD PRO Ultimate 512GB', '64GB', 'v30', '200MB/s', '130MB/s', 204);
 
-/*accu database*/
+
+
+-- Accu's
 insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-511A - Canon BP-511', 7.4, 1500, 205);
 insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-E12 Ultra - Canon LP-E12', 7.2, 850, 206);
 insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-EL3e Ultra - Nikon EN-EL3e', 7.4, 2000, 207);
@@ -660,7 +701,9 @@ insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL
 insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-X1 - Sony NP-BX1', 3.6, 1170, 211);
 insert into accu (naam, aantal_volt, capaciteit, product_id) values ('Hähnel HL-XW50 Ultra - Sony NP-FW50', 7.2, 1000, 212);
 
-/*statief database*/
+
+
+-- Statieven
 insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Combi C3770TN', 'Carbon', '18kg', 213);
 insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Mach3 TMA37AL', 'Aluminium', '16kg', 214);
 insert into statief (naam, materiaal, draagvermogen, product_id) values ('Benro Mach3 TMA47AL', 'Aluminium', '20kg', 215);
@@ -684,14 +727,18 @@ insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei
 insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei Photo A2 statief', 'Carbon', '8kg', 233);
 insert into statief (naam, materiaal, draagvermogen, product_id) values ('Rollei Photo T2 statief', 'Aluminium', '8kg', 234);
 
-/*drone database*/
+
+
+-- Drones
 insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Air 3', 0.720, 1, 5200, 8.0, 75, 235);
 insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Avata drone', 0.410, 1, 2420, 10.0, 97, 236);
 insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Inspire 3', 4.310, 1, 4280, 15.0, 94, 237);
 insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Mavic 3 Classic', 0.895, 1, 5000, 15.0, 75, 238);
 insert into drone (naam, gewicht, v4Kvideo, batterijgrootte, bereik_controller, maximale_snelheid, product_id) values ('DJI Mini 3', 0.249, 1, 2453, 10.0, 65, 239);
 
-/*driezestigcamera database*/
+
+
+-- 360 camera's
 insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', 35.5, 1, 240);
 insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 ONE RS', 239, 1, 241);
 insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 Pro', 1550, 0, 242);
@@ -700,10 +747,15 @@ insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Kan
 insert into driezestigcamera (naam, gewicht, bluetooth, product_id) values ('Insta360 GO 3', 201, 0, 245);
 
 
--- Connecties
 
-/*camera_lenzen*/
---sony n:m
+
+-- Connecties tussen bepaalde producten (n:m relaties)
+
+/*
+Camera_lenzen n:m relaties
+Welke lenzen kan op de camera?
+*/
+--Sony camera's
 insert into camera_lenzen (camera_id, lenzen_id) values (1, 31);
 insert into camera_lenzen (camera_id, lenzen_id) values (1, 32);
 insert into camera_lenzen (camera_id, lenzen_id) values (1, 33);
@@ -1009,7 +1061,9 @@ insert into camera_lenzen (camera_id, lenzen_id) values (20, 18);
 insert into camera_lenzen (camera_id, lenzen_id) values (20, 19);
 insert into camera_lenzen (camera_id, lenzen_id) values (20, 23);
 insert into camera_lenzen (camera_id, lenzen_id) values (20, 28);
---canon n:m
+
+
+--Canon camera's
 insert into camera_lenzen (camera_id, lenzen_id) values (21, 1);
 insert into camera_lenzen (camera_id, lenzen_id) values (21, 2);
 insert into camera_lenzen (camera_id, lenzen_id) values (21, 3);
@@ -2698,7 +2752,10 @@ insert into camera_lenzen (camera_id, lenzen_id) values (84, 88);
 
 
 
-/*camera_accu*/
+/*
+Camera_accu n:m relatie
+Welke camera welke accu kan gebruiken
+*/
 insert into camera_accu (camera_id, accu_id) values (1, 7);
 insert into camera_accu (camera_id, accu_id) values (2, 7);
 insert into camera_accu (camera_id, accu_id) values (3, 7);
@@ -2808,24 +2865,12 @@ insert into camera_accu (camera_id, accu_id) values (78, 5);
 
 
 
--- Overig
 
-/* Soort camera */
-insert into gebruik (soort) values ('mirrorless'); -- Systeem camera 
-insert into gebruik (soort) values ('dslr');       -- Spiegelreflex camera 
-insert into gebruik (soort) values ('compact');    -- Compacte camera
-insert into gebruik (soort) values ('accessoire'); -- Lens, drone, 360 camera, accu en statief
-insert into gebruik (soort) values ('video');      -- Video camera
-insert into gebruik (soort) values ('middenformaat'); -- Middenformaat camera
 
-/*tags*/
-insert into tags(tagname) values ('3x free sensor cleaning');
-insert into tags(tagname) values ('new');
-insert into tags(tagname) values ('bestseller');
-insert into tags(tagname) values ('5 jaar garantie');
-
-/*product_tags*/
-
+/*
+Product_tags
+Is de product nieuw, best-seller etc.
+*/
 insert into product_tags (tag_id, product_id) values (3, 1);
 insert into product_tags (tag_id, product_id) values (3, 2);
 insert into product_tags (tag_id, product_id) values (3, 4);
@@ -2862,5 +2907,3 @@ insert into product_tags (tag_id, product_id) values (2, 208);
 insert into product_tags (tag_id, product_id) values (2, 214);
 insert into product_tags (tag_id, product_id) values (2, 230);
 insert into product_tags (tag_id, product_id) values (2, 238);
-
-
