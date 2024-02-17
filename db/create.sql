@@ -92,10 +92,10 @@ CREATE TABLE camera_lenzen (
   lenzen_id INTEGER
 );
 
-CREATE TABLE camera_memorycard (
+CREATE TABLE camera_accu (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   camera_id INTEGER,
-  memorycard_id INTEGER
+  accu_id INTEGER
 );
 
 -------------------------------------------------------------------------------------------------
@@ -108,7 +108,6 @@ CREATE TABLE gebruik(
 CREATE TABLE tags (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   tagname VARCHAR(255)
---bijv. "sale", "new", "bestseller","garantie"
 );
 
 CREATE TABLE product_tags (
@@ -2698,15 +2697,115 @@ insert into camera_lenzen (camera_id, lenzen_id) values (84, 88);
 
 
 
-/*camera_memorycard*/
-insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
-insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
-insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
-insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
-insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
-insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
-insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
-insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
+
+/*camera_accu*/
+insert into camera_accu (camera_id, accu_id) values (1, 7);
+insert into camera_accu (camera_id, accu_id) values (2, 7);
+insert into camera_accu (camera_id, accu_id) values (3, 7);
+insert into camera_accu (camera_id, accu_id) values (4, 7);
+insert into camera_accu (camera_id, accu_id) values (5, 7);
+insert into camera_accu (camera_id, accu_id) values (6, 7);
+insert into camera_accu (camera_id, accu_id) values (7, 7);
+insert into camera_accu (camera_id, accu_id) values (8, 7);
+insert into camera_accu (camera_id, accu_id) values (9, 7);
+insert into camera_accu (camera_id, accu_id) values (10, 7);
+insert into camera_accu (camera_id, accu_id) values (11, 7);
+insert into camera_accu (camera_id, accu_id) values (12, 7);
+insert into camera_accu (camera_id, accu_id) values (13, 7);
+insert into camera_accu (camera_id, accu_id) values (14, 7);
+insert into camera_accu (camera_id, accu_id) values (15, 7);
+insert into camera_accu (camera_id, accu_id) values (16, 7);
+insert into camera_accu (camera_id, accu_id) values (17, 7);
+insert into camera_accu (camera_id, accu_id) values (18, 7);
+insert into camera_accu (camera_id, accu_id) values (19, 7);
+insert into camera_accu (camera_id, accu_id) values (20, 7);
+insert into camera_accu (camera_id, accu_id) values (1, 8);
+insert into camera_accu (camera_id, accu_id) values (2, 8);
+insert into camera_accu (camera_id, accu_id) values (3, 8);
+insert into camera_accu (camera_id, accu_id) values (4, 8);
+insert into camera_accu (camera_id, accu_id) values (5, 8);
+insert into camera_accu (camera_id, accu_id) values (6, 8);
+insert into camera_accu (camera_id, accu_id) values (7, 8);
+insert into camera_accu (camera_id, accu_id) values (8, 8);
+insert into camera_accu (camera_id, accu_id) values (9, 8);
+insert into camera_accu (camera_id, accu_id) values (10, 8);
+insert into camera_accu (camera_id, accu_id) values (11, 8);
+insert into camera_accu (camera_id, accu_id) values (12, 8);
+insert into camera_accu (camera_id, accu_id) values (13, 8);
+insert into camera_accu (camera_id, accu_id) values (14, 8);
+insert into camera_accu (camera_id, accu_id) values (15, 8);
+insert into camera_accu (camera_id, accu_id) values (16, 8);
+insert into camera_accu (camera_id, accu_id) values (17, 8);
+insert into camera_accu (camera_id, accu_id) values (18, 8);
+insert into camera_accu (camera_id, accu_id) values (19, 8);
+insert into camera_accu (camera_id, accu_id) values (20, 8);
+insert into camera_accu (camera_id, accu_id) values (21, 1);
+insert into camera_accu (camera_id, accu_id) values (22, 1);
+insert into camera_accu (camera_id, accu_id) values (23, 1);
+insert into camera_accu (camera_id, accu_id) values (24, 1);
+insert into camera_accu (camera_id, accu_id) values (25, 1);
+insert into camera_accu (camera_id, accu_id) values (26, 1);
+insert into camera_accu (camera_id, accu_id) values (27, 1);
+insert into camera_accu (camera_id, accu_id) values (28, 1);
+insert into camera_accu (camera_id, accu_id) values (29, 1);
+insert into camera_accu (camera_id, accu_id) values (30, 1);
+insert into camera_accu (camera_id, accu_id) values (31, 1);
+insert into camera_accu (camera_id, accu_id) values (32, 1);
+insert into camera_accu (camera_id, accu_id) values (33, 1);
+insert into camera_accu (camera_id, accu_id) values (34, 1);
+insert into camera_accu (camera_id, accu_id) values (21, 2);
+insert into camera_accu (camera_id, accu_id) values (22, 2);
+insert into camera_accu (camera_id, accu_id) values (23, 2);
+insert into camera_accu (camera_id, accu_id) values (24, 2);
+insert into camera_accu (camera_id, accu_id) values (25, 2);
+insert into camera_accu (camera_id, accu_id) values (26, 2);
+insert into camera_accu (camera_id, accu_id) values (27, 2);
+insert into camera_accu (camera_id, accu_id) values (28, 2);
+insert into camera_accu (camera_id, accu_id) values (29, 2);
+insert into camera_accu (camera_id, accu_id) values (30, 2);
+insert into camera_accu (camera_id, accu_id) values (31, 2);
+insert into camera_accu (camera_id, accu_id) values (32, 2);
+insert into camera_accu (camera_id, accu_id) values (33, 2);
+insert into camera_accu (camera_id, accu_id) values (34, 2);
+insert into camera_accu (camera_id, accu_id) values (35, 3);
+insert into camera_accu (camera_id, accu_id) values (36, 3);
+insert into camera_accu (camera_id, accu_id) values (37, 3);
+insert into camera_accu (camera_id, accu_id) values (38, 3);
+insert into camera_accu (camera_id, accu_id) values (39, 3);
+insert into camera_accu (camera_id, accu_id) values (40, 3);
+insert into camera_accu (camera_id, accu_id) values (41, 3);
+insert into camera_accu (camera_id, accu_id) values (42, 3);
+insert into camera_accu (camera_id, accu_id) values (43, 3);
+insert into camera_accu (camera_id, accu_id) values (44, 3);
+insert into camera_accu (camera_id, accu_id) values (45, 3);
+insert into camera_accu (camera_id, accu_id) values (46, 6);
+insert into camera_accu (camera_id, accu_id) values (47, 6);
+insert into camera_accu (camera_id, accu_id) values (48, 6);
+insert into camera_accu (camera_id, accu_id) values (49, 6);
+insert into camera_accu (camera_id, accu_id) values (50, 6);
+insert into camera_accu (camera_id, accu_id) values (51, 6);
+insert into camera_accu (camera_id, accu_id) values (52, 6);
+insert into camera_accu (camera_id, accu_id) values (53, 6);
+insert into camera_accu (camera_id, accu_id) values (54, 6);
+insert into camera_accu (camera_id, accu_id) values (55, 6);
+insert into camera_accu (camera_id, accu_id) values (56, 6);
+insert into camera_accu (camera_id, accu_id) values (57, 6);
+insert into camera_accu (camera_id, accu_id) values (58, 6);
+insert into camera_accu (camera_id, accu_id) values (59, 6);
+insert into camera_accu (camera_id, accu_id) values (60, 6);
+insert into camera_accu (camera_id, accu_id) values (61, 6);
+insert into camera_accu (camera_id, accu_id) values (62, 4);
+insert into camera_accu (camera_id, accu_id) values (63, 4);
+insert into camera_accu (camera_id, accu_id) values (64, 4);
+insert into camera_accu (camera_id, accu_id) values (65, 4);
+insert into camera_accu (camera_id, accu_id) values (66, 4);
+insert into camera_accu (camera_id, accu_id) values (67, 4);
+insert into camera_accu (camera_id, accu_id) values (68, 4);
+insert into camera_accu (camera_id, accu_id) values (75, 5);
+insert into camera_accu (camera_id, accu_id) values (76, 5);
+insert into camera_accu (camera_id, accu_id) values (77, 5);
+insert into camera_accu (camera_id, accu_id) values (78, 5);
+
 
 
 -- Overig
@@ -2715,18 +2814,53 @@ insert into camera_memorycard (camera_id, memorycard_id) values (1, 1);
 insert into gebruik (soort) values ('mirrorless'); -- Systeem camera 
 insert into gebruik (soort) values ('dslr');       -- Spiegelreflex camera 
 insert into gebruik (soort) values ('compact');    -- Compacte camera
-insert into gebruik (soort) values ('accessoire'); -- Lens, drone, 360 camera, memorycard en statief
+insert into gebruik (soort) values ('accessoire'); -- Lens, drone, 360 camera, accu en statief
 insert into gebruik (soort) values ('video');      -- Video camera
 insert into gebruik (soort) values ('middenformaat'); -- Middenformaat camera
 
 /*tags*/
-insert into tags(tagname) values ('sale');
+insert into tags(tagname) values ('3x free sensor cleaning');
 insert into tags(tagname) values ('new');
 insert into tags(tagname) values ('bestseller');
-insert into tags(tagname) values ('garantie');
+insert into tags(tagname) values ('5 jaar garantie');
 
 /*product_tags*/
 
-insert into product_tags (product_id, tag_id) values (1, 1)
+insert into product_tags (tag_id, product_id) values (3, 1);
+insert into product_tags (tag_id, product_id) values (3, 2);
+insert into product_tags (tag_id, product_id) values (3, 4);
+insert into product_tags (tag_id, product_id) values (3, 8);
+insert into product_tags (tag_id, product_id) values (3, 10);
+insert into product_tags (tag_id, product_id) values (3, 24);
+insert into product_tags (tag_id, product_id) values (3, 26);
+insert into product_tags (tag_id, product_id) values (3, 38);
+insert into product_tags (tag_id, product_id) values (3, 52);
+insert into product_tags (tag_id, product_id) values (3, 56);
+insert into product_tags (tag_id, product_id) values (3, 65);
+insert into product_tags (tag_id, product_id) values (2, 14);
+insert into product_tags (tag_id, product_id) values (2, 2);
+insert into product_tags (tag_id, product_id) values (2, 7);
+insert into product_tags (tag_id, product_id) values (2, 22);
+insert into product_tags (tag_id, product_id) values (2, 25);
+insert into product_tags (tag_id, product_id) values (2, 51);
+insert into product_tags (tag_id, product_id) values (2, 55);
+insert into product_tags (tag_id, product_id) values (2, 58);
+insert into product_tags (tag_id, product_id) values (2, 66);
+insert into product_tags (tag_id, product_id) values (2, 81);
+insert into product_tags (tag_id, product_id) values (2, 93);
+insert into product_tags (tag_id, product_id) values (2, 88);
+insert into product_tags (tag_id, product_id) values (2, 104);
+insert into product_tags (tag_id, product_id) values (2, 123);
+insert into product_tags (tag_id, product_id) values (2, 135);
+insert into product_tags (tag_id, product_id) values (2, 162);
+insert into product_tags (tag_id, product_id) values (2, 165);
+insert into product_tags (tag_id, product_id) values (2, 170);
+insert into product_tags (tag_id, product_id) values (2, 182);
+insert into product_tags (tag_id, product_id) values (2, 199);
+insert into product_tags (tag_id, product_id) values (2, 203);
+insert into product_tags (tag_id, product_id) values (2, 208);
+insert into product_tags (tag_id, product_id) values (2, 214);
+insert into product_tags (tag_id, product_id) values (2, 230);
+insert into product_tags (tag_id, product_id) values (2, 238);
 
 
