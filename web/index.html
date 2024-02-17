@@ -102,7 +102,12 @@
         // laad producten
         // de functie showProducts wordt aangeroepen als er antwoord van de API is
         var request = new XMLHttpRequest()
-        request.open('GET', '/api/products', true) 
+
+
+
+        request.open('GET', '/api/camera', true)
+        
+      
         request.onload = showProducts 
         request.send() 
 

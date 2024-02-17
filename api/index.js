@@ -29,6 +29,8 @@ app.get('/api/echo', echoRequest)
 app.get('/api/categories', getCategories)
 app.get('/api/products', getProducts)
 app.get('/api/products/:id', getProductById)
+app.get('/api/camera', getCamera)
+app.get('/api/lenzen', getLenzen)
 //app.get('/api/products/:id/related', db.getRelatedProductsById)
 // our API is not protected...so let's not expose these
 // app.post('/api/products', createProduct)
@@ -64,27 +66,59 @@ function getCategories(request, response) {
   console.log('API verstuurt /api/categories/')
 }
 
+
+
+
+
+
 function getProducts(request, response) {
+  // Log de ontvangen API-aanvraag en queryparameters
   console.log('API ontvangt /api/products/', request.query)
+
+  // Maak een lege array om productgegevens op te slaan
   let data = []
 
   // Haal alle producten op met hun basisinformatie
   const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price FROM products ORDER BY products.id ASC')
+  // Voer de SQL-query uit en sla de resultaten op in de 'data' array
   data = sqlOpdracht.all()
 
-  // Loop door de resultaten en voeg accu-informatie toe voor accuproducten
-  data.forEach(product => {
-    if (product.id >= 205 && product.id <= 212) {
-      const accuInfo = db.prepare('SELECT products.name AS name, products.description AS description, products.price AS price, accu.aantal_volt AS aantalvolt, accu.capaciteit AS capaciteit FROM accu JOIN products ON accu.product_id = products.id').get(product.id)
-      product.aantal_volt = accuInfo.aantalvolt
-      product.capaciteit = accuInfo.capaciteit
-    }
-  })
+  // Log de verzonden gegevens naar de API-client
+  console.log(JSON.stringify(data, null, 2))
 
-  // console.log(JSON.stringify(data, null, 2))
+  // Verzend de gegevens als reactie op de API-aanvraag
   response.status(200).send(data)
+
+  // Log het verzenden van gegevens naar de API-client
   console.log('API verstuurt /api/products/')
 }
+
+
+
+
+function getCamera(request, response) {
+   console.log('API ontvangt /api/camera', request.query)
+  let data = []
+  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, camera.megapixels AS MP, camera.sensor AS sensor, camera.fps AS fps, camera.bitrate AS bits, camera.geheugenkaartslots AS slots FROM products JOIN camera ON camera.product_id = products.id')
+  data = sqlOpdracht.all()
+
+  console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/camera')
+}
+
+function getLenzen(request, response) {
+   console.log('API ontvangt /api/lenzen', request.query)
+  let data = []
+  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, lenzen.lenstype, lens.gewicht FROM products JOIN lenzen ON lenzen.product_id = products.id')
+  data = sqlOpdracht.all()
+
+  console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/lenzen')
+}
+
+
 
 function getProductById(request, response) {
   console.log('API ontvangt /api/products/:id', request.query)
