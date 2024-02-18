@@ -27,12 +27,22 @@ app.use(express.static('web'))
 // definieer startpunten voor de API-server
 app.get('/api/echo', echoRequest)
 app.get('/api/products', getProducts)
+
 app.get('/api/sony', getSony)
 app.get('/api/canon', getCanon)
 app.get('/api/nikon', getNikon)
 app.get('/api/sigma', getSigma)
 app.get('/api/panasonic', getPanasonic)
 app.get('/api/fujifilm', getFujifilm)
+
+app.get('/api/camera', getCamera)
+app.get('/api/lens', getLens)
+app.get('/api/geheugenkaart', getGeheugenkaart)
+app.get('/api/accu', getAccu)
+app.get('/api/statief', getStatief)
+app.get('/api/drone', getDrone)
+app.get('/api/camera360', getCamera360)
+
 app.get('/api/products/:id', getProductById)
 // app.get('/api/camera', getCamera)
 // app.get('/api/lenzen', getLenzen)
@@ -153,7 +163,101 @@ function getFujifilm(request, response) {
   // console.log(JSON.stringify(data, null, 2))
   response.status(200).send(data)
   console.log('API verstuurt /api/panasonic/')
-s}
+}
+
+
+function getCamera(request, response) {
+  console.log('API ontvangt /api/camera', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare(`SELECT * FROM products WHERE category = 'camera' ORDER BY products.id ASC`)
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/camera/')
+}
+
+function getLens(request, response) {
+  console.log('API ontvangt /api/lens', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare(`SELECT * FROM products WHERE category = 'lenzen' ORDER BY products.id ASC`)
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/lens/')
+}
+
+function getGeheugenkaart(request, response) {
+  console.log('API ontvangt /api/geheugenkaart', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare(`SELECT * FROM products WHERE category = 'geheugenkaart' ORDER BY products.id ASC`)
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/geheugenkaart/')
+}
+
+function getAccu(request, response) {
+  console.log('API ontvangt /api/accu', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare(`SELECT * FROM products WHERE category = 'accu' ORDER BY products.id ASC`)
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/accu/')
+}
+
+function getStatief(request, response) {
+  console.log('API ontvangt /api/statief', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare(`SELECT * FROM products WHERE category = 'statief' ORDER BY products.id ASC`)
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/statief/')
+}
+
+function getDrone(request, response) {
+  console.log('API ontvangt /api/drone', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare(`SELECT * FROM products WHERE category = 'drone' ORDER BY products.id ASC`)
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/drone/')
+}
+
+function getCamera360(request, response) {
+  console.log('API ontvangt /api/camera360', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare(`SELECT * FROM products WHERE category = '360camera' ORDER BY products.id ASC`)
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/camera360/')
+}
+
+
 
 /*
 function getCamera(request, response) {
