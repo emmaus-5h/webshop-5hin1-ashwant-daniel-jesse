@@ -61,7 +61,7 @@ function getProducts(request, response) {
   let data = []
 
   // Haal alle producten op met hun basisinformatie
-  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, products.category FROM products ORDER BY products.id ASC')
+  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, products.category, camera.megapixels AS megapixels, camera.sensor AS sensor, camera.fps AS fps, camera.bitrate AS bits, camera.geheugenkaartslots AS geheugenkaartslots, camera.product_id FROM products JOIN camera ON camera.product_id = products.id ORDER BY products.id ASC')
   data = sqlOpdracht.all()
 
   // console.log(JSON.stringify(data, null, 2))

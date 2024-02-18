@@ -68,7 +68,7 @@
           <div class="card-body">
             <p class="product_description card-text"></p>
             <ul class="product-properties">
-              
+              <li><span class="propert-name">Megapixels: </span><span class="megapixels"></span></li>
               <li><span class="propert-name">Prijs: </span><span class="product_price"></span></li>
               <li><span class="propert-name">Code: </span><span class="product_code"></span></li>
             </ul>
@@ -134,6 +134,34 @@
               }
               // voeg product toe aan DOM, 
               // zodat deze zichtbaar wordt op de webpagina
+              
+              if (category == 'camera') {
+                const clone = template.content.cloneNode(true);
+                clone.querySelector(".product_title").textContent = name 
+                clone.querySelector(".product_description").textContent =`${product.description.substr(0, 100)}...`
+                clone.querySelector(".product_price").textContent = `€ ${product.price},-`
+                clone.querySelector(".product_code").textContent = product.code
+                clone.querySelector(".product_id").value = product.id
+                clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
+                clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
+                clone.querySelector(".megapixels").textContent = product.megapixels
+                container.appendChild(clone)
+              }
+
+              if (category == 'lenzen') {
+                const clone = template.content.cloneNode(true);
+                clone.querySelector(".product_title").textContent = name 
+                clone.querySelector(".product_description").textContent =`${product.description.substr(0, 100)}...`
+                clone.querySelector(".product_price").textContent = `€ ${product.price},-`
+                clone.querySelector(".product_code").textContent = product.code
+                clone.querySelector(".product_id").value = product.id
+                clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
+                clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
+                clone.querySelector(".megapixels").textContent = product.megapixels
+                container.appendChild(clone)
+              }
+
+              /*
               const clone = template.content.cloneNode(true);
               clone.querySelector(".product_title").textContent = name 
               clone.querySelector(".product_description").textContent =`${product.description.substr(0, 100)}...`
@@ -142,8 +170,8 @@
               clone.querySelector(".product_id").value = product.id
               clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
               clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
-              
               container.appendChild(clone)
+              */
             }
           }
   </script>
