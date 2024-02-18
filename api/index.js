@@ -27,6 +27,7 @@ app.use(express.static('web'))
 // definieer startpunten voor de API-server
 app.get('/api/echo', echoRequest)
 app.get('/api/products', getProducts)
+app.get('/api/merk', getMerk)
 app.get('/api/products/:id', getProductById)
 // app.get('/api/camera', getCamera)
 // app.get('/api/lenzen', getLenzen)
@@ -70,6 +71,19 @@ function getProducts(request, response) {
 }
 
 
+
+function getMerk(request, response) {
+  console.log('API ontvangt /api/merk/', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare('SELECT * FROM products WHERE merk_id = 1 ORDER BY products.id ASC')
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/merk/')
+}
 
 /*
 function getCamera(request, response) {
