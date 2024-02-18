@@ -79,7 +79,7 @@ function getProducts(request, response) {
   let data = []
 
   // Haal alle producten op met hun basisinformatie
-  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price FROM products ORDER BY products.id ASC')
+  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, lenzen.gewicht AS gewicht, lenzen.product_id FROM products JOIN lenzen ON lensen.product_id = products_id ORDER BY products.id ASC')
   // Voer de SQL-query uit en sla de resultaten op in de 'data' array
   data = sqlOpdracht.all()
 
