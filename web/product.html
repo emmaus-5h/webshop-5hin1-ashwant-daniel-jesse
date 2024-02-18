@@ -78,6 +78,8 @@
 
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('productId');
+        var cameraname = product.name
+        
 
         var request = new XMLHttpRequest()
         request.open('GET', `/api/products/${productId}`, true)
@@ -92,8 +94,14 @@
                 clone.querySelector(".product_id").value = product.id
                 clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
                 clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
-                clone.querySelector(".product_stat1").textContent = 
-                clone.querySelector(".product_stat2").textContent = 
+              if (cameraname.includes('Sony') || cameraname.includes('Canon') || cameraname.includes('Nikon') || cameraname.includes('Fuji') )
+              {
+                clone.querySelector(".product_stat1").textContent = product.megapixels;
+                clone.querySelector(".product_stat2").textContent = product.sensor;
+                } else if () {
+                  
+                };
+            
 
                 container.appendChild(clone)
             } else {

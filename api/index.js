@@ -287,7 +287,9 @@ function getProductById(request, response) {
   console.log('API ontvangt /api/products/:id', request.query)
   let data = []
   const product_id = parseInt(request.params.id)
-  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price FROM products WHERE id = ?')
+  
+  const sqlOpdracht = db.prepare('SELECT * FROM products LEFT OUTER JOIN camera ON camera.product_id = products.id LEFT OUTER JOIN lenzen ON lenzen.product_id = products.id LEFT OUTER JOIN memorycard ON memorycard.product_id = products.id LEFT OUTER JOIN accu ON accu.product_id = products.id LEFT OUTER JOIN statief ON statief.product_id = products.id LEFT OUTER JOIN drone ON drone.product_id = products.id LEFT OUTER JOIN driezestigcamera ON driezestigcamera.product_id = products.id WHERE products.id = ?')
+  
   data = sqlOpdracht.all(product_id)
   response.status(200).json(data[0])
 }
