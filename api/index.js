@@ -44,14 +44,6 @@ app.get('/api/drone', getDrone)
 app.get('/api/camera360', getCamera360)
 
 app.get('/api/products/:id', getProductById)
-// app.get('/api/camera', getCamera)
-// app.get('/api/lenzen', getLenzen)
-
-//app.get('/api/products/:id/related', db.getRelatedProductsById)
-// our API is not protected...so let's not expose these
-// app.post('/api/products', createProduct)
-// app.put('/api/products/:id', updateProduct)
-// app.delete('/api/products/:id', deleteProduct)
 app.post('/api/checkout', checkoutOrder)
 
 // start de server!
@@ -99,6 +91,9 @@ function getSony(request, response) {
   response.status(200).send(data)
   console.log('API verstuurt /api/sony/')
 }
+
+
+// Alle producten op merk
 
 function getCanon(request, response) {
   console.log('API ontvangt /api/canon', request.query)
@@ -165,6 +160,8 @@ function getFujifilm(request, response) {
   console.log('API verstuurt /api/panasonic/')
 }
 
+
+// Alle producten op soort product
 
 function getCamera(request, response) {
   console.log('API ontvangt /api/camera', request.query)
