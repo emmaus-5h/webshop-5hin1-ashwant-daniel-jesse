@@ -49,7 +49,7 @@
     
           </ul>
 
-    <a><button onclick="showSony()"  id="reloadButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Winkelwagen <span class="num_products"></span></button></a>
+    <a><button onclick="showSony()"  id="reloadButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Reload <span class="num_products"></span></button></a>
 
         </nav>
 
@@ -90,27 +90,27 @@
 
 	<script src="/js/basket.js"></script> <!-- functies voor de winkelwagen -->
 	
-  <script> // functies om de producten te laden en tonen op de webpagina
+  <script>
+    // functies om de producten te laden en tonen op de webpagina
 
     // deze functie wordt aangeroepen als de pagina geladen is
     // deze functie laadt de producten via de API
-    (function() { 
-        // your page initialization code here
-        // the DOM will be available here
+    (function() {
+      // your page initialization code here
+      // the DOM will be available here
 
-        // laad winkelmandje
-        updateBasket()
+      // laad winkelmandje
+      updateBasket()
 
-        // laad producten
-        // de functie showProducts wordt aangeroepen als er antwoord van de API is
-        var request = new XMLHttpRequest()
+      // laad producten
+      // de functie showProducts wordt aangeroepen als er antwoord van de API is
+      var request = new XMLHttpRequest()
 
-        request.open('GET', '/api/products', true)
-        request.onload = showProducts 
-        request.send() 
+      request.open('GET', '/api/products', true)
+      request.onload = showProducts
+      request.send()
 
-
-      })();
+    })();
 
     // deze functie zet de producten op het scherm
     // nadat de API is aangeroepen
@@ -124,28 +124,28 @@
 
       app.appendChild(container)
 
-            var data = JSON.parse(this.response) // vertaal response van API naar array met producten
-            for (let row in data) { // herhaal voor elke product
-              const product = data[row]
-              var name = product.name.substr(0, 35)
-              if(name.length < product.name.length) {
-                name = name + '...'
-              }
-              // voeg product toe aan DOM, 
-              // zodat deze zichtbaar wordt op de webpagina
-              
-                const clone = template.content.cloneNode(true);
-                clone.querySelector(".product_title").textContent = name 
-                clone.querySelector(".product_description").textContent =`${product.description.substr(0, 100)}...`
-                clone.querySelector(".product_price").textContent = `€ ${product.price},-`
-                clone.querySelector(".product_code").textContent = product.code
-                clone.querySelector(".product_id").value = product.id
-                clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
-                clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
-                container.appendChild(clone)
-              
-            }
-          }
+      var data = JSON.parse(this.response) // vertaal response van API naar array met producten
+      for (let row in data) { // herhaal voor elke product
+        const product = data[row]
+        var name = product.name.substr(0, 35)
+        if (name.length < product.name.length) {
+          name = name + '...'
+        }
+        // voeg product toe aan DOM, 
+        // zodat deze zichtbaar wordt op de webpagina
+
+        const clone = template.content.cloneNode(true);
+        clone.querySelector(".product_title").textContent = name
+        clone.querySelector(".product_description").textContent = `${product.description.substr(0, 100)}...`
+        clone.querySelector(".product_price").textContent = `€ ${product.price},-`
+        clone.querySelector(".product_code").textContent = product.code
+        clone.querySelector(".product_id").value = product.id
+        clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
+        clone.querySelector(".product_image").src = `/images/${product.name}.jpg`
+        container.appendChild(clone)
+      }
+    }
+
     function showSony() {
       fetch('/api/merk')
         .then(response => response.json())
@@ -176,21 +176,15 @@
             clone.querySelector(".product_code").textContent = product.code;
             clone.querySelector(".product_id").value = product.id;
             clone.querySelector(".product_id").dataset.json = JSON.stringify(product);
-            clone.querySelector(".product_image").src =`/images/${product.name}.jpg`;
+            clone.querySelector(".product_image").src = `/images/${product.name}.jpg`;
             container.appendChild(clone);
           }
-
-          // Reload the page after displaying the data
-          window.location.reload();
-          console.log('pagina reload');
         })
     }
-    // Get reference to the button
     const reloadButton = document.getElementById('reloadButton');
 
     // Attach click event listener to the button
     reloadButton.addEventListener('click', showSony);
-    
   </script>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
