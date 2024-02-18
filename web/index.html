@@ -37,26 +37,26 @@
           Merken
         </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMerk">
-                <a class="dropdown-item" href="sony.html" onclick="filterProduct ('merk', 'Sony')">Sony </a>
-                <a class="dropdown-item" href="canon.html" onclick="filterProduct ('merk', 'Canon')">Canon </a>
-                <a class="dropdown-item" href="nikon.html" onclick="filterProduct ('merk', 'Nikon')">Nikon </a>
-                <a class="dropdown-item" href="sigma.html" onclick="filterProduct ('merk', 'Sigma')">Sigma </a>
-                <a class="dropdown-item" href="panasonic.html" onclick="filterProduct ('merk', 'Panasonic')">Panasonic </a>
-                <a class="dropdown-item" href="fujifim.html" onclick="filterProduct ('merk', 'Fujiflm')">Fujifilm </a>
+                <a><button onclick="showSony()"  id="sonyButton" class="btn dropdown-item my-2 my-sm-0" type="submit">Sony </button> </a>
+                <a><button onclick="showCanon()"  id="canonButton" class="btn dropdown-item my-2 my-sm-0" type="submit">Canon </button></a>
+                <a><button onclick="showNikon()"  id="nikonButton" class="btn dropdown-item my-2 my-sm-0" type="submit">Nikon </button></a>
+                <a><button onclick="showSigma()"  id="sigmaButton" class="btn dropdown-item my-2 my-sm-0" type="submit">Sigma </button></a>
+                <a><button onclick="showPanasonic()"  id="panasonicButton" class="btn dropdown-item my-2 my-sm-0" type="submit">Panasonic </button></a>
+                <a><button onclick="showFujifilm()"  id="fujifilmButton" class="btn dropdown-item my-2 my-sm-0" type="submit">Fujifilm </button></a>
             </li>
               </div>
 
     
           </ul>
 
-    <a><button onclick="showSony()"  id="reloadButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Reload <span class="num_products"></span></button></a>
+    <a class="btn btn-outline-success my-2 my-sm-0" href="basket.html">Winkelwagen <span class="num_products"></span></a>
 
         </nav>
 
   <!-- lijst met producten, wordt gevuld door javascript -->
 	<main id="index">
 		<div class="container">
-			<h3>Alle producten</h3>
+			<h3 id="productTitle">Alle producten</h3>
  			<p>Hier zie je een lijst met alle producten die je op deze webshop kan bestellen.</p>
 			<p>Klik op een product voor meer informatie.<p>
 			<p>Klik op de "winkelwagentje" om het artikel in je winkelwagen te stoppen.</p>
@@ -147,18 +147,20 @@
     }
 
     function showSony() {
-      fetch('/api/merk')
+      fetch('/api/sony')
         .then(response => response.json())
         .then(data => {
-          // Process the data received from the API
-          console.log(data);
+          // Verwijder eerst alle bestaande producten
+          const productContainer = document.getElementById('index').querySelector('.article-container');
+          productContainer.innerHTML = '';
 
-          // Display the data on the page
+          // Hernoem de titel naar: Alle (merk) producten
+          document.getElementById('productTitle').textContent = 'Alle Sony producten';
+
+          // Voeg vervolgens de nieuwe Sony-producten toe
           const template = document.querySelector('#productcard');
-          const app = document.getElementById('index');
           const container = document.createElement('div');
           container.setAttribute('class', 'container row article-container');
-          app.appendChild(container);
 
           for (let row in data) {
             const product = data[row];
@@ -179,12 +181,220 @@
             clone.querySelector(".product_image").src = `/images/${product.name}.jpg`;
             container.appendChild(clone);
           }
+
+          productContainer.appendChild(container);
         })
     }
-    const reloadButton = document.getElementById('reloadButton');
 
-    // Attach click event listener to the button
-    reloadButton.addEventListener('click', showSony);
+    function showCanon() {
+      fetch('/api/canon')
+        .then(response => response.json())
+        .then(data => {
+          // Verwijder eerst alle bestaande producten
+          const productContainer = document.getElementById('index').querySelector('.article-container');
+          productContainer.innerHTML = '';
+
+          // Hernoem de titel naar: Alle (merk) producten
+          document.getElementById('productTitle').textContent = 'Alle Canon producten';
+
+          // Voeg vervolgens de nieuwe Canon-producten toe
+          const template = document.querySelector('#productcard');
+          const container = document.createElement('div');
+          container.setAttribute('class', 'container row article-container');
+
+          for (let row in data) {
+            const product = data[row];
+            var name = product.name.substr(0, 35);
+            if (name.length < product.name.length) {
+              name = name + '...';
+            }
+
+            // voeg product toe aan DOM, 
+            // zodat deze zichtbaar wordt op de webpagina
+            const clone = template.content.cloneNode(true);
+            clone.querySelector(".product_title").textContent = name;
+            clone.querySelector(".product_description").textContent = `${product.description.substr(0, 100)}...`;
+            clone.querySelector(".product_price").textContent = `€ ${product.price},-`;
+            clone.querySelector(".product_code").textContent = product.code;
+            clone.querySelector(".product_id").value = product.id;
+            clone.querySelector(".product_id").dataset.json = JSON.stringify(product);
+            clone.querySelector(".product_image").src = `/images/${product.name}.jpg`;
+            container.appendChild(clone);
+          }
+
+          productContainer.appendChild(container);
+        })
+    }
+    
+    function showNikon() {
+      fetch('/api/nikon')
+        .then(response => response.json())
+        .then(data => {
+          // Verwijder eerst alle bestaande producten
+          const productContainer = document.getElementById('index').querySelector('.article-container');
+          productContainer.innerHTML = '';
+
+          // Hernoem de titel naar: Alle (merk) producten
+          document.getElementById('productTitle').textContent = 'Alle Nikon producten';
+
+          // Voeg vervolgens de nieuwe Nikon-producten toe
+          const template = document.querySelector('#productcard');
+          const container = document.createElement('div');
+          container.setAttribute('class', 'container row article-container');
+
+          for (let row in data) {
+            const product = data[row];
+            var name = product.name.substr(0, 35);
+            if (name.length < product.name.length) {
+              name = name + '...';
+            }
+
+            // voeg product toe aan DOM, 
+            // zodat deze zichtbaar wordt op de webpagina
+            const clone = template.content.cloneNode(true);
+            clone.querySelector(".product_title").textContent = name;
+            clone.querySelector(".product_description").textContent = `${product.description.substr(0, 100)}...`;
+            clone.querySelector(".product_price").textContent = `€ ${product.price},-`;
+            clone.querySelector(".product_code").textContent = product.code;
+            clone.querySelector(".product_id").value = product.id;
+            clone.querySelector(".product_id").dataset.json = JSON.stringify(product);
+            clone.querySelector(".product_image").src = `/images/${product.name}.jpg`;
+            container.appendChild(clone);
+          }
+
+          productContainer.appendChild(container);
+        })
+    }
+
+    function showSigma() {
+      fetch('/api/sigma')
+        .then(response => response.json())
+        .then(data => {
+          // Verwijder eerst alle bestaande producten
+          const productContainer = document.getElementById('index').querySelector('.article-container');
+          productContainer.innerHTML = '';
+
+          // Hernoem de titel naar: Alle (merk) producten
+          document.getElementById('productTitle').textContent = 'Alle Sigma producten';
+
+          // Voeg vervolgens de nieuwe Sigma-producten toe
+          const template = document.querySelector('#productcard');
+          const container = document.createElement('div');
+          container.setAttribute('class', 'container row article-container');
+
+          for (let row in data) {
+            const product = data[row];
+            var name = product.name.substr(0, 35);
+            if (name.length < product.name.length) {
+              name = name + '...';
+            }
+
+            // voeg product toe aan DOM, 
+            // zodat deze zichtbaar wordt op de webpagina
+            const clone = template.content.cloneNode(true);
+            clone.querySelector(".product_title").textContent = name;
+            clone.querySelector(".product_description").textContent = `${product.description.substr(0, 100)}...`;
+            clone.querySelector(".product_price").textContent = `€ ${product.price},-`;
+            clone.querySelector(".product_code").textContent = product.code;
+            clone.querySelector(".product_id").value = product.id;
+            clone.querySelector(".product_id").dataset.json = JSON.stringify(product);
+            clone.querySelector(".product_image").src = `/images/${product.name}.jpg`;
+            container.appendChild(clone);
+          }
+
+          productContainer.appendChild(container);
+        })
+    }
+
+    function showPanasonic() {
+      fetch('/api/panasonic')
+        .then(response => response.json())
+        .then(data => {
+          // Verwijder eerst alle bestaande producten
+          const productContainer = document.getElementById('index').querySelector('.article-container');
+          productContainer.innerHTML = '';
+
+          // Hernoem de titel naar: Alle (merk) producten
+          document.getElementById('productTitle').textContent = 'Alle Panasonic producten';
+
+          // Voeg vervolgens de nieuwe Panasonic-producten toe
+          const template = document.querySelector('#productcard');
+          const container = document.createElement('div');
+          container.setAttribute('class', 'container row article-container');
+
+          for (let row in data) {
+            const product = data[row];
+            var name = product.name.substr(0, 35);
+            if (name.length < product.name.length) {
+              name = name + '...';
+            }
+
+            // voeg product toe aan DOM, 
+            // zodat deze zichtbaar wordt op de webpagina
+            const clone = template.content.cloneNode(true);
+            clone.querySelector(".product_title").textContent = name;
+            clone.querySelector(".product_description").textContent = `${product.description.substr(0, 100)}...`;
+            clone.querySelector(".product_price").textContent = `€ ${product.price},-`;
+            clone.querySelector(".product_code").textContent = product.code;
+            clone.querySelector(".product_id").value = product.id;
+            clone.querySelector(".product_id").dataset.json = JSON.stringify(product);
+            clone.querySelector(".product_image").src = `/images/${product.name}.jpg`;
+            container.appendChild(clone);
+          }
+
+          productContainer.appendChild(container);
+        })
+    }
+
+    function showFujifilm() {
+      fetch('/api/fujifilm')
+        .then(response => response.json())
+        .then(data => {
+          // Verwijder eerst alle bestaande producten
+          const productContainer = document.getElementById('index').querySelector('.article-container');
+          productContainer.innerHTML = '';
+
+          // Hernoem de titel naar: Alle (merk) producten
+          document.getElementById('productTitle').textContent = 'Alle Fujifilm producten';
+
+          // Voeg vervolgens de nieuwe Fujifilm-producten toe
+          const template = document.querySelector('#productcard');
+          const container = document.createElement('div');
+          container.setAttribute('class', 'container row article-container');
+
+          for (let row in data) {
+            const product = data[row];
+            var name = product.name.substr(0, 35);
+            if (name.length < product.name.length) {
+              name = name + '...';
+            }
+
+            // voeg product toe aan DOM, 
+            // zodat deze zichtbaar wordt op de webpagina
+            const clone = template.content.cloneNode(true);
+            clone.querySelector(".product_title").textContent = name;
+            clone.querySelector(".product_description").textContent = `${product.description.substr(0, 100)}...`;
+            clone.querySelector(".product_price").textContent = `€ ${product.price},-`;
+            clone.querySelector(".product_code").textContent = product.code;
+            clone.querySelector(".product_id").value = product.id;
+            clone.querySelector(".product_id").dataset.json = JSON.stringify(product);
+            clone.querySelector(".product_image").src = `/images/${product.name}.jpg`;
+            container.appendChild(clone);
+          }
+
+          productContainer.appendChild(container);
+        })
+    }
+
+    
+    const sonyButton = document.getElementById('sonyButton');
+    const canonButton = document.getElementById('canonButton');
+    const nikonButton = document.getElementById('nikonButton');
+    const sigmaButton = document.getElementById('sigmaButton');
+    const panasonicButton = document.getElementById('panasonicButton');
+    const fujifilmButton = document.getElementById('fujifilmButton');
+    
+    
   </script>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

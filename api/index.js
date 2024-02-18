@@ -27,7 +27,12 @@ app.use(express.static('web'))
 // definieer startpunten voor de API-server
 app.get('/api/echo', echoRequest)
 app.get('/api/products', getProducts)
-app.get('/api/merk', getMerk)
+app.get('/api/sony', getSony)
+app.get('/api/canon', getCanon)
+app.get('/api/nikon', getNikon)
+app.get('/api/sigma', getSigma)
+app.get('/api/panasonic', getPanasonic)
+app.get('/api/fujifilm', getFujifilm)
 app.get('/api/products/:id', getProductById)
 // app.get('/api/camera', getCamera)
 // app.get('/api/lenzen', getLenzen)
@@ -72,8 +77,8 @@ function getProducts(request, response) {
 
 
 
-function getMerk(request, response) {
-  console.log('API ontvangt /api/merk/', request.query)
+function getSony(request, response) {
+  console.log('API ontvangt /api/sony', request.query)
   let data = []
 
   // Haal alle producten op met hun basisinformatie
@@ -82,8 +87,73 @@ function getMerk(request, response) {
 
   // console.log(JSON.stringify(data, null, 2))
   response.status(200).send(data)
-  console.log('API verstuurt /api/merk/')
+  console.log('API verstuurt /api/sony/')
 }
+
+function getCanon(request, response) {
+  console.log('API ontvangt /api/canon', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare('SELECT * FROM products WHERE merk_id = 3 ORDER BY products.id ASC')
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/canon/')
+}
+
+function getNikon(request, response) {
+  console.log('API ontvangt /api/nikon', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare('SELECT * FROM products WHERE merk_id = 2 ORDER BY products.id ASC')
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/nikon/')
+}
+
+function getSigma(request, response) {
+  console.log('API ontvangt /api/sigma', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare('SELECT * FROM products WHERE merk_id = 6 ORDER BY products.id ASC')
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/sigma/')
+}
+
+function getPanasonic(request, response) {
+  console.log('API ontvangt /api/panasonic', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare('SELECT * FROM products WHERE merk_id = 4 ORDER BY products.id ASC')
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/panasonic/')
+}
+
+function getFujifilm(request, response) {
+  console.log('API ontvangt /api/fujifilm', request.query)
+  let data = []
+
+  // Haal alle producten op met hun basisinformatie
+  const sqlOpdracht = db.prepare('SELECT * FROM products WHERE merk_id = 5 ORDER BY products.id ASC')
+  data = sqlOpdracht.all()
+
+  // console.log(JSON.stringify(data, null, 2))
+  response.status(200).send(data)
+  console.log('API verstuurt /api/panasonic/')
+s}
 
 /*
 function getCamera(request, response) {
