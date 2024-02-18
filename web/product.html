@@ -91,7 +91,7 @@
                 clone.querySelector(".product_id").value = product.id
                 clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
                 clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
-              if (product.category == 'camera')
+             if (product.category == 'camera')
               {
       
 
@@ -105,7 +105,101 @@
                   <li><span class="propert-name">Bits: </span><span class="camera_stat4">${product.bitrate}</span></li>
                   <li><span class="propert-name">Geheugenkaartslots: </span><span class="camera_stat5">${product.geheugenkaartslots}</span></li>
                 `
-                };
+                } else if (product.category == 'lenzen')    
+              {
+
+
+                const propertiesList = clone.querySelector('.beschrijving');
+
+                let lensTypeDisplay;
+                if (product.lenstype) {
+                    lensTypeDisplay = 'zoom';
+                } else {
+                    lensTypeDisplay = 'prime';
+                }
+
+                propertiesList.innerHTML += 
+                  `
+                  <li><span class="propert-name">Lenstype: </span><span class="camera_stat1">${lensTypeDisplay}</span></li>
+                  <li><span class="propert-name">Gewicht: </span><span class="camera_stat2">${product.gewicht}kg</span></li>
+                `
+                }
+              else if (product.category == 'geheugenkaart')    
+              {
+
+
+                const propertiesList = clone.querySelector('.beschrijving');
+
+                
+                propertiesList.innerHTML += 
+                  `
+                 <li><span class="propert-name">Capacity: </span><span class="camera_stat1">${product.capacityGB}</span></li>
+                  <li><span class="propert-name">Videospeed: </span><span class="camera_stat2">${product.videospeed}</span></li>
+                  <li><span class="propert-name">Readingspeed: </span><span class="camera_stat3">${product.readingspeed}</span></li>
+                  <li><span class="propert-name">Writingspeed: </span><span class="camera_stat4">${product.writingspeed}</span></li>
+                `
+                }
+              else if (product.category == 'accu')    
+              {
+
+
+                const propertiesList = clone.querySelector('.beschrijving');
+
+
+                propertiesList.innerHTML += 
+                  `
+                 <li><span class="propert-name">aantal volt: </span><span class="camera_stat1">${product.aantal_volt}V</span></li>
+                  <li><span class="propert-name">Videospeed: </span><span class="camera_stat2">${product.capaciteit}MaH</span></li>
+                `
+                }
+              else if (product.category == 'statief')    
+              {
+
+
+                const propertiesList = clone.querySelector('.beschrijving');
+
+
+                propertiesList.innerHTML += 
+                  `
+                 <li><span class="propert-name">materiaal: </span><span class="camera_stat1">${product.materiaal}</span></li>
+                  <li><span class="propert-name">draagvermogen: </span><span class="camera_stat2">${product.draagvermogen}</span></li>
+                `
+                }
+              else if (product.category == 'drone')    
+              {
+
+
+                const propertiesList = clone.querySelector('.beschrijving');
+
+
+                propertiesList.innerHTML += 
+                  `
+                 <li><span class="propert-name">gewicht: </span><span class="camera_stat1">${product.gewicht}</span></li>
+                  <li><span class="propert-name">v4Kvideo: </span><span class="camera_stat2">${product.v4Kvideo}</span></li>
+                  <li><span class="propert-name">batterijgrootte: </span><span class="camera_stat3">${product.batterijgrootte}MaH</span></li>
+                  <li><span class="propert-name">bereik: </span><span class="camera_stat4">${product.bereik_controller}KM</span></li>
+                  <li><span class="propert-name">max speed: </span><span class="camera_stat5">${product.maximale_snelheid}km/h</span></li>
+                `
+                }
+              else if (product.category == '360camera')    
+              {
+
+
+                const propertiesList = clone.querySelector('.beschrijving');
+
+                let BluetoothDisplay;
+                if (product.Bluetooth) {
+                      BluetoothDisplay = 'Bluetooth';
+                } else {
+                      BluetoothDisplay = 'geen Bluetooth';
+                }
+
+                propertiesList.innerHTML += 
+                  `
+                  <li><span class="propert-name">Lenstype: </span><span class="camera_stat1">${BluetoothDisplay}</span></li>
+                  <li><span class="propert-name">Gewicht: </span><span class="camera_stat2">${product.gewicht}kg</span></li>
+                `
+                }
               
                 container.appendChild(clone)
             }
