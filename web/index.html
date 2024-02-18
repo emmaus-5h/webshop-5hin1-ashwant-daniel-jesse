@@ -454,42 +454,42 @@
 
     function showLens() {
       fetch('/api/lens')
-        .then(response => response.json())
-        .then(data => {
-          // Verwijder eerst alle bestaande producten
-          const productContainer = document.getElementById('index').querySelector('.article-container');
-          productContainer.innerHTML = '';
+          .then(response => response.json())
+          .then(data => {
+            // Verwijder eerst alle bestaande producten
+            const productContainer = document.getElementById('index').querySelector('.article-container');
+            productContainer.innerHTML = '';
 
-          // Hernoem de titel naar: Alle (type) producten
-          document.getElementById('productTitle').textContent = 'Alle lenzen';
-          document.getElementById('productDescription').textContent = 'Hier zie je een lijst met alle lenzen die je op deze webshop kan bestellen.';
+            // Hernoem de titel naar: Alle (type) producten
+            document.getElementById('productTitle').textContent = 'Alle cameras';
+            document.getElementById('productDescription').textContent = 'Hier zie je een lijst met alle cameras die je op deze webshop kan bestellen.';
 
-          // Voeg vervolgens de nieuwe lens producten toe
-          const template = document.querySelector('#productcard');
-          const container = document.createElement('div');
-          container.setAttribute('class', 'container row article-container');
+            // Voeg vervolgens de nieuwe camera producten toe
+            const template = document.querySelector('#productcard');
+            const container = document.createElement('div');
+            container.setAttribute('class', 'container row article-container');
 
-          for (let row in data) {
-            const product = data[row];
-            var name = product.name.substr(0, 35);
-            if (name.length < product.name.length) {
-              name = name + '...';
+            for (let row in data) {
+              const product = data[row];
+              var name = product.name.substr(0, 35);
+              if (name.length < product.name.length) {
+                name = name + '...';
+              }
+
+              // voeg product toe aan DOM, 
+              // zodat deze zichtbaar wordt op de webpagina
+              const clone = template.content.cloneNode(true);
+              clone.querySelector(".product_title").textContent = name;
+              clone.querySelector(".product_description").textContent = `${product.description.substr(0, 100)}...`;
+              clone.querySelector(".product_price").textContent = `€ ${product.price},-`;
+              clone.querySelector(".product_code").textContent = product.code;
+              clone.querySelector(".product_id").value = product.id;
+              clone.querySelector(".product_id").dataset.json = JSON.stringify(product);
+              clone.querySelector(".product_image").src = `/images/${product.name}.jpg`;
+              container.appendChild(clone);
             }
 
-            // voeg product toe aan DOM, 
-            // zodat deze zichtbaar wordt op de webpagina
-            const clone = template.content.cloneNode(true);
-            clone.querySelector(".product_title").textContent = name;
-            clone.querySelector(".product_description").textContent = `${product.description.substr(0, 100)}...`;
-            clone.querySelector(".product_price").textContent = `€ ${product.price},-`;
-            clone.querySelector(".product_code").textContent = product.code;
-            clone.querySelector(".product_id").value = product.id;
-            clone.querySelector(".product_id").dataset.json = JSON.stringify(product);
-            clone.querySelector(".product_image").src = `/images/${product.name}.jpg`;
-            container.appendChild(clone);
-          }
-
-          productContainer.appendChild(container);
+            productContainer.appendChild(container);
         })
     }
 

@@ -28,7 +28,7 @@ CREATE TABLE camera (
 
 CREATE TABLE lenzen (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  naam VARCHAR(255),
+  name VARCHAR(255),
   lenstype BIT,                     -- Prime = 0 (niet kunnen zoomen), zoom = 1 (kan wel inzoomen)
   gewichtlens VARCHAR(255),             -- Gewicht van de lens in kilogram
   product_id INTEGER
@@ -561,10 +561,10 @@ insert into camera (name, megapixels, sensor, fps, bitrate, geheugenkaartslots, 
 
 
 -- Lenzen
-insert into lenzen (naam, lenstype, gewichtlens, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1.180, 85);
-insert into lenzen (naam, lenstype, gewichtlens, product_id) values ('Canon EF 24-105mm F4.0L IS II USM', 1, 0.795, 86);
-insert into lenzen (naam, lenstype, gewichtlens, product_id) values ('Canon EF 50mm F1.8 STM', 0, 0.159, 87);
-insert into lenzen (naam, lenstype, gewichtlens, product_id) values ('Canon RF 16mm F2.8 STM', 0, 0.165, 88);
+insert into lenzen (name, lenstype, gewichtlens, product_id) values ('Canon EF 11-24mm F4L USM', 1, 1.180, 85);
+insert into lenzen (name, lenstype, gewichtlens, product_id) values ('Canon EF 24-105mm F4.0L IS II USM', 1, 0.795, 86);
+insert into lenzen (name, lenstype, gewichtlens, product_id) values ('Canon EF 50mm F1.8 STM', 0, 0.159, 87);
+insert into lenzen (name, lenstype, gewichtlens, product_id) values ('Canon RF 16mm F2.8 STM', 0, 0.165, 88);
 insert into lenzen (naam, lenstype, gewichtlens, product_id) values ('Canon RF 24-70mm F2.8L IS USM', 1, 0.9, 89);
 insert into lenzen (naam, lenstype, gewichtlens, product_id) values ('Canon RF 24-105mm F4L IS USM', 1, 0.7, 90);
 insert into lenzen (naam, lenstype, gewichtlens, product_id) values ('Canon RF 35mm F1.8 IS Macro STM', 0, 0.305, 91);
