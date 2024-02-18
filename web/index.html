@@ -68,7 +68,7 @@
           <div class="card-body">
             <p class="product_description card-text"></p>
             <ul class="product-properties">
-               <li><span class="propert-name">Gewicht: </span><span class="lenzen_gewicht"></span></li>
+              
               <li><span class="propert-name">Prijs: </span><span class="product_price"></span></li>
               <li><span class="propert-name">Code: </span><span class="product_code"></span></li>
             </ul>
@@ -104,9 +104,7 @@
         // de functie showProducts wordt aangeroepen als er antwoord van de API is
         var request = new XMLHttpRequest()
 
-
-        request.open('GET', '/api/products', true)
-
+      request.open('GET', '/api/products', true)
         
       
         request.onload = showProducts 
@@ -129,8 +127,8 @@
             var data = JSON.parse(this.response) // vertaal response van API naar array met producten
             for (let row in data) { // herhaal voor elke product
               const product = data[row]
-              var mmname = product.name
               var name = product.name.substr(0, 35)
+              var category = product.category
               if(name.length < product.name.length) {
                 name = name + '...'
               }
@@ -144,9 +142,7 @@
               clone.querySelector(".product_id").value = product.id
               clone.querySelector(".product_id").dataset.json = JSON.stringify(product)
               clone.querySelector(".product_image").src =`/images/${product.name}.jpg`
-              if (mmname.includes('mm') ) {
-                clone.querySelector(".lenzen_gewicht").textContent = `${lenzen.gewicht} kg`
-              }
+              
               container.appendChild(clone)
             }
           }

@@ -26,11 +26,11 @@ app.use(express.static('web'))
 
 // definieer startpunten voor de API-server
 app.get('/api/echo', echoRequest)
-app.get('/api/categories', getCategories)
 app.get('/api/products', getProducts)
 app.get('/api/products/:id', getProductById)
-app.get('/api/camera', getCamera)
-app.get('/api/lenzen', getLenzen)
+// app.get('/api/camera', getCamera)
+// app.get('/api/lenzen', getLenzen)
+
 //app.get('/api/products/:id/related', db.getRelatedProductsById)
 // our API is not protected...so let's not expose these
 // app.post('/api/products', createProduct)
@@ -56,46 +56,22 @@ function echoRequest(request, response) {
   response.status(200).send(request.query)
 }
 
-function getCategories(request, response) {
-  console.log('API ontvangt /api/categories/')
-  // TODO: breid database uit zodat onderstaande query een lijstje categoriën levert.
-  const sqlOpdracht = db.prepare('SELECT categories.name AS category_name FROM categories ORDER BY id ASC')
-  const data = sqlOpdracht.all()
-  // console.log(JSON.stringify(data, null, 2))
-  response.status(200).send(data)
-  console.log('API verstuurt /api/categories/')
-}
-
-
-
-
-
-
 function getProducts(request, response) {
-  // Log de ontvangen API-aanvraag en queryparameters
   console.log('API ontvangt /api/products/', request.query)
-
-  // Maak een lege array om productgegevens op te slaan
   let data = []
 
   // Haal alle producten op met hun basisinformatie
-  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, lenzen.gewicht AS gewicht, lenzen.product_id FROM products JOIN lenzen ON lensen.product_id = products_id ORDER BY products.id ASC')
-  // Voer de SQL-query uit en sla de resultaten op in de 'data' array
+  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, products.category FROM products ORDER BY products.id ASC')
   data = sqlOpdracht.all()
 
-  // Log de verzonden gegevens naar de API-client
-  console.log(JSON.stringify(data, null, 2))
-
-  // Verzend de gegevens als reactie op de API-aanvraag
+  // console.log(JSON.stringify(data, null, 2))
   response.status(200).send(data)
-
-  // Log het verzenden van gegevens naar de API-client
   console.log('API verstuurt /api/products/')
 }
 
 
 
-
+/*
 function getCamera(request, response) {
    console.log('API ontvangt /api/camera', request.query)
   let data = []
@@ -110,15 +86,14 @@ function getCamera(request, response) {
 function getLenzen(request, response) {
    console.log('API ontvangt /api/lenzen', request.query)
   let data = []
-  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, lenzen.lenstype, lens.gewicht FROM products JOIN lenzen ON lenzen.product_id = products.id')
+  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, lenzen.lenstype, lenzen.gewicht FROM products JOIN lenzen ON lenzen.product_id = products.id')
   data = sqlOpdracht.all()
 
   console.log(JSON.stringify(data, null, 2))
   response.status(200).send(data)
   console.log('API verstuurt /api/lenzen')
 }
-
-
+*/
 
 function getProductById(request, response) {
   console.log('API ontvangt /api/products/:id', request.query)
