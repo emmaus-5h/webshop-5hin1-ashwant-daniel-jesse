@@ -259,29 +259,6 @@ function getCamera360(request, response) {
 
 
 
-/*
-function getCamera(request, response) {
-   console.log('API ontvangt /api/camera', request.query)
-  let data = []
-  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, camera.megapixels AS MP, camera.sensor AS sensor, camera.fps AS fps, camera.bitrate AS bits, camera.geheugenkaartslots AS slots FROM products JOIN camera ON camera.product_id = products.id')
-  data = sqlOpdracht.all()
-
-  console.log(JSON.stringify(data, null, 2))
-  response.status(200).send(data)
-  console.log('API verstuurt /api/camera')
-}
-
-function getLenzen(request, response) {
-   console.log('API ontvangt /api/lenzen', request.query)
-  let data = []
-  const sqlOpdracht = db.prepare('SELECT products.id AS id, products.name AS name, products.description AS description, products.code AS code, products.price AS price, lenzen.lenstype, lenzen.gewicht FROM products JOIN lenzen ON lenzen.product_id = products.id')
-  data = sqlOpdracht.all()
-
-  console.log(JSON.stringify(data, null, 2))
-  response.status(200).send(data)
-  console.log('API verstuurt /api/lenzen')
-}
-*/
 
 function getProductById(request, response) {
   console.log('API ontvangt /api/products/:id', request.query)

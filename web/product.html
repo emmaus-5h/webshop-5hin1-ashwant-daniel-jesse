@@ -113,15 +113,15 @@
 
                 let lensTypeDisplay;
                 if (product.lenstype) {
-                    lensTypeDisplay = 'zoom';
+                    lensTypeDisplay = 'Zoom';
                 } else {
-                    lensTypeDisplay = 'prime';
+                    lensTypeDisplay = 'Prime';
                 }
 
                 propertiesList.innerHTML += 
                   `
                   <li><span class="propert-name">Lenstype: </span><span class="camera_stat1">${lensTypeDisplay}</span></li>
-                  <li><span class="propert-name">Gewicht: </span><span class="camera_stat2">${product.gewicht}kg</span></li>
+                  <li><span class="propert-name">Gewicht: </span><span class="camera_stat2">${product.gewichtlens}kg</span></li>
                 `
                 }
               else if (product.category == 'geheugenkaart')    
@@ -148,8 +148,8 @@
 
                 propertiesList.innerHTML += 
                   `
-                 <li><span class="propert-name">aantal volt: </span><span class="camera_stat1">${product.aantal_volt}V</span></li>
-                  <li><span class="propert-name">Videospeed: </span><span class="camera_stat2">${product.capaciteit}MaH</span></li>
+                 <li><span class="propert-name">Aantal volt: </span><span class="camera_stat1">${product.aantal_volt}V</span></li>
+                  <li><span class="propert-name">Capaciteit: </span><span class="camera_stat2">${product.capaciteit}mAh</span></li>
                 `
                 }
               else if (product.category == 'statief')    
@@ -161,8 +161,8 @@
 
                 propertiesList.innerHTML += 
                   `
-                 <li><span class="propert-name">materiaal: </span><span class="camera_stat1">${product.materiaal}</span></li>
-                  <li><span class="propert-name">draagvermogen: </span><span class="camera_stat2">${product.draagvermogen}</span></li>
+                 <li><span class="propert-name">Materiaal: </span><span class="camera_stat1">${product.materiaal}</span></li>
+                  <li><span class="propert-name">Draagvermogen: </span><span class="camera_stat2">${product.draagvermogen}</span></li>
                 `
                 }
               else if (product.category == 'drone')    
@@ -174,7 +174,7 @@
 
                 propertiesList.innerHTML += 
                   `
-                 <li><span class="propert-name">gewicht: </span><span class="camera_stat1">${product.gewicht}</span></li>
+                 <li><span class="propert-name">gewicht: </span><span class="camera_stat1">${product.gewichtdrone}</span></li>
                   <li><span class="propert-name">v4Kvideo: </span><span class="camera_stat2">${product.v4Kvideo}</span></li>
                   <li><span class="propert-name">batterijgrootte: </span><span class="camera_stat3">${product.batterijgrootte}MaH</span></li>
                   <li><span class="propert-name">bereik: </span><span class="camera_stat4">${product.bereik_controller}KM</span></li>
@@ -197,7 +197,7 @@
                 propertiesList.innerHTML += 
                   `
                   <li><span class="propert-name">Lenstype: </span><span class="camera_stat1">${BluetoothDisplay}</span></li>
-                  <li><span class="propert-name">Gewicht: </span><span class="camera_stat2">${product.gewicht}kg</span></li>
+                  <li><span class="propert-name">Gewicht: </span><span class="camera_stat2">${product.gewicht360}kg</span></li>
                 `
                 }
               
