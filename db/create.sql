@@ -5,7 +5,7 @@ CREATE TABLE products (
   description TEXT,
   code VARCHAR(255),
   price INTEGER(10,2),
-  category INTEGER(255),
+  category VARCHAR(255),
   merk_id INTEGER,
   gebruik_id INTEGER
 );
